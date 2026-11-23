@@ -21,7 +21,7 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Fontovi: Bebas Neue (naslovi), Barlow (tekst), s Google Fontsa.
 - Potpisni detalj: "pomaknuta sjena" kao kod broda u logu (žuta ili koraljna `box-shadow`/`text-shadow` 3–6px).
 - Logo: `assets/img/naml27-logo-color.webp` (svijetla pozadina), `naml27-logo-white.webp` (tamna).
-- Hero na naslovnici: bijeli logo, "2027", datumi, gumbi, odbrojavanje do 4. 12. 2026 i radar (`src/svg/sonar.svg`). Bez "11th Annual Workshop" u naslovu.
+- Hero na naslovnici: bijeli logo, ispod naslovni blok (bijela linija, veliko žuto "2027", "APRIL 12–15 / SAN DIEGO, CA"), formacija mlažnjaka u pozadini (`src/svg/jets.svg`), gumbi, odbrojavanje do 4. 12. 2026 i radar (`src/svg/sonar.svg`). Bez "11th Annual Workshop" u naslovu.
 - Logotipi sponzora i organizacija su u zaobljenim bijelim pločicama (`.spon`), a osobe u karticama (`.person`).
 - CSS i JS imaju `?v=hash` u linkovima (cache-busting) koji dodaje build.
 

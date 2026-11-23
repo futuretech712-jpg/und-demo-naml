@@ -1,0 +1,13 @@
+<svg class="jets" viewBox="0 0 800 700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <path id="jet" d="M0 -70 C5 -60 7 -46 7 -30 L8 -12 L48 14 L48 24 L8 14 L6 38 L22 50 L22 58 L3 54 L0 60 L-3 54 L-22 58 L-22 50 L-6 38 L-8 14 L-48 24 L-48 14 L-8 -12 L-7 -30 C-7 -46 -5 -60 0 -70 Z"/>
+  </defs>
+  <g fill="#ffffff">
+    <use href="#jet" transform="translate(400 150) scale(1.5)"/>
+    <use href="#jet" transform="translate(270 300) scale(1.5)"/>
+    <use href="#jet" transform="translate(530 300) scale(1.5)"/>
+    <use href="#jet" transform="translate(400 450) scale(1.5)"/>
+    <use href="#jet" transform="translate(140 450) scale(1.5)"/>
+    <use href="#jet" transform="translate(660 450) scale(1.5)"/>
+  </g>
+</svg>
