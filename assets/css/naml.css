@@ -217,7 +217,6 @@
 .naml .person:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(1,58,64,.14)}
 .naml .ph{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--teal),var(--dteal));margin-bottom:14px}
 .naml .ph::before{content:attr(data-i);position:absolute;inset:0;display:grid;place-items:center;font:400 64px/1 "Bebas Neue",sans-serif;color:rgba(255,255,255,.9)}
-.naml .ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--yellow) 0 60%,var(--orange) 60% 80%,var(--coral) 80%)}
 .naml .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .naml .person:hover .ph img{transform:scale(1.04)}
 .naml .person h3{font-size:26px;color:var(--dteal);margin:0 6px 2px}
