@@ -8,7 +8,7 @@ src/pages/*.html  -> ./<page>.html          (demo site with header, menu and foo
                                              Elementor HTML widget: fonts + CSS + content + JS)
 Placeholders in pages: {{base}} asset path, {{link:page}} internal link, {{svg:name}} illustration.
 """
-import pathlib, re
+import pathlib, re, hashlib
 
 ROOT = pathlib.Path(__file__).parent
 SITE_URL = "https://futuretech712-jpg.github.io/und-demo-naml/"  # used for images in WordPress blocks
@@ -71,6 +71,7 @@ FOOTER = '''<footer class="band foot" id="contact">
 def main():
     css = (ROOT / "assets/css/naml.css").read_text()
     js = (ROOT / "assets/js/naml.js").read_text()
+    ver = hashlib.md5((css + js).encode()).hexdigest()[:8]  # cache-busting
     (ROOT / "wordpress").mkdir(exist_ok=True)
     for src in sorted((ROOT / "src/pages").glob("*.html")):
         page = src.stem
@@ -89,7 +90,7 @@ def main():
 <link rel="icon" href="assets/img/favicon.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 {FONTS}
-<link rel="stylesheet" href="assets/css/naml.css">
+<link rel="stylesheet" href="assets/css/naml.css?v={ver}">
 <style>body{{margin:0}}html{{scroll-padding-top:90px}}</style>
 </head>
 <body>
@@ -100,7 +101,7 @@ def main():
   </main>
   {FOOTER}
 </div>
-<script src="assets/js/naml.js"></script>
+<script src="assets/js/naml.js?v={ver}"></script>
 </body>
 </html>
 '''
