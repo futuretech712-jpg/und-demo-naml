@@ -5,6 +5,9 @@ Korisnik (Rafael, Underline Science) piše na hrvatskom i šalje izmjene koje tr
 ## Što je ovo
 Višestranični demo web za NAML 2027 (Naval Applications of Machine Learning, 11th Annual Workshop, April 12–15, 2027, San Diego). Kasnije se svaka stranica prebacuje u WordPress/Elementor (naml2027.org) kao jedan HTML widget. Stari web: naml2026.org.
 
+## Konačni rezultat: Elementor HTML za svaku stranicu
+Ono što ide u WordPress su datoteke u `wordpress/` (index, call-for-participation, agenda, venues, organizers, sponsors, previous-workshops). Svaka je samostalna: fontovi, cijeli CSS, sadržaj i JS, bez headera i footera, jer njih daje WordPress tema. Kad korisnik traži "Elementor verziju" neke stranice, pošalji mu tu datoteku. Prije objave slike trebaju doći iz WordPress Media Libraryja (`SITE_URL` u `build.py` i URL-ovi s naml2026.org).
+
 ## Kako se radi izmjena
 1. Uređuj samo `src/pages/*.html`, `src/svg/*.svg`, `assets/css/naml.css`, `assets/js/naml.js` ili `build.py` (izbornik i footer su u `build.py`).
 2. Pokreni `python3 build.py`, koji generira stranice u rootu i `wordpress/*.html`. Generirane datoteke ne uređuj ručno.
