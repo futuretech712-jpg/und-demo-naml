@@ -228,14 +228,12 @@
 .naml .person:hover .ph img{transform:scale(1.04)}
 .naml .person h3{font-size:26px;color:var(--dteal);margin:0 6px 2px}
 .naml .person p{color:var(--muted);font-size:14px;margin:0 6px;line-height:1.4}
-.naml .logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.naml .logos a{display:flex;flex-direction:column;align-items:center;gap:14px;background:#fff;border-radius:10px;padding:28px 20px;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
-.naml .logos a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--yellow)}
-.naml .lg{position:relative;width:160px;height:160px;display:block}
-.naml .lg::before{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;font:400 30px/1 "Bebas Neue",sans-serif;color:var(--teal);border:2px dashed var(--line);border-radius:8px}
-.naml .lg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
-.naml .logos b{color:var(--dteal);font-weight:600}
-@media (max-width:600px){.naml .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.naml .logos{grid-template-columns:minmax(0,1fr)}}
+.naml .logos{display:flex;flex-wrap:wrap;gap:28px 36px}
+.naml .orgl{display:flex;flex-direction:column;align-items:center;gap:12px;width:190px;text-align:center;text-decoration:none}
+.naml .orgl .spon{width:170px}
+.naml .orgl b{color:var(--dteal);font-weight:600;font-size:15px;line-height:1.35}
+.naml .orgl:hover b{color:var(--coral)}
+@media (max-width:600px){.naml .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.naml .logos{justify-content:center}.naml .orgl{width:calc(50% - 18px)}.naml .orgl .spon{width:100%}}
 
 /* Sponsor tiers */
 .naml .tier{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:start;padding:28px 0;border-top:1px solid var(--line)}
