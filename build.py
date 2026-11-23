@@ -19,6 +19,7 @@ MENU = [  # (page, label)
     ("call-for-participation", "Call for Participation"),
     ("agenda", "Agenda"),
     ("venues", "Venues"),
+    ("organizers", "Organizers"),
     ("sponsors", "Sponsors"),
     ("previous-workshops", "Previous Workshops"),
 ]

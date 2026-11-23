@@ -12,7 +12,8 @@ Demo of the NAML 2027 (Naval Applications of Machine Learning) website in the of
 | Call for Participation | `call-for-participation.html` | `wordpress/call-for-participation.html` |
 | Agenda (NAML 2027) | `agenda.html` | `wordpress/agenda.html` |
 | Venues | `venues.html` | `wordpress/venues.html` |
-| Sponsors and organizers | `sponsors.html` | `wordpress/sponsors.html` |
+| Organizers | `organizers.html` | `wordpress/organizers.html` |
+| Sponsors | `sponsors.html` | `wordpress/sponsors.html` |
 | Previous workshops (2021–2026 + NAML 2026 program embed) | `previous-workshops.html` | `wordpress/previous-workshops.html` |
 
 ## Structure
