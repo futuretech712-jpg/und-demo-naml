@@ -237,11 +237,11 @@
 .naml .tier h3{font-size:34px;color:var(--dteal);margin:0 0 4px}
 .naml .tier .tl small{display:block;color:var(--muted);font-size:14px}
 .naml .tier .tl i{display:block;width:44px;height:6px;border-radius:3px;margin-bottom:12px;background:var(--c,var(--teal))}
-.naml .spons{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.naml .diamond .spons{grid-template-columns:minmax(0,420px)}
-.naml .spon{position:relative;display:grid;place-items:center;aspect-ratio:3/2;background:#fff;border-radius:12px;padding:22px 26px;box-shadow:0 1px 2px rgba(1,58,64,.06),0 6px 18px rgba(1,58,64,.06);transition:transform .2s,box-shadow .2s}
+.naml .spons{display:flex;flex-wrap:wrap;gap:14px}
+
+.naml .spon{position:relative;display:grid;place-items:center;width:150px;aspect-ratio:1;background:#fff;border-radius:22px;padding:22px;border:1px solid var(--line);box-shadow:0 1px 2px rgba(1,58,64,.06),0 6px 18px rgba(1,58,64,.06);transition:transform .2s,box-shadow .2s}
 .naml .spon:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(1,58,64,.14)}
-.naml .diamond .spon{aspect-ratio:2/1;padding:28px 48px;outline:3px solid var(--yellow);outline-offset:-3px}
+.naml .diamond .spon{width:200px;padding:26px;border:3px solid var(--yellow)}
 .naml .spon::before{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;font:400 26px/1.1 "Bebas Neue",sans-serif;color:var(--teal);text-align:center;padding:10px}
-.naml .spon img{position:relative;display:block;width:100%;height:100%;object-fit:contain;background:#fff}
-@media (max-width:700px){.naml .tier{grid-template-columns:minmax(0,1fr);gap:14px}.naml .spons{grid-template-columns:repeat(2,minmax(0,1fr))}.naml .diamond .spons{grid-template-columns:minmax(0,1fr)}}
+.naml .spon img{position:relative;display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:12px}
+@media (max-width:700px){.naml .tier{grid-template-columns:minmax(0,1fr);gap:14px}.naml .spon{width:calc(50% - 7px)}.naml .diamond .spon{width:180px}}
