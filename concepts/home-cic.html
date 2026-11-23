@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAML 2027 – koncept "CIC"</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;200;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* KONCEPT "CIC" – po smjernicama "Prompting for frontend aesthetics":
+   Tema: brodski Combat Information Center – taktički zaslon, radar, mreža, podatkovni zapisi.
+   Tipografija: Big Shoulders Display (100 nasuprot 900, skokovi veličine 3x+) + IBM Plex Mono za podatke.
+   Boje: dominantni gotovo crni teal, oštri naglasci NAML žute i koralja (CSS varijable).
+   Pokret: jedno orkestrirano učitavanje sa stupnjevanim pojavljivanjem (animation-delay) + spori radar.
+   Pozadina: slojevi gradijenata, mreža, linije skeniranja i izobate umjesto ravne boje. */
+:root{
+  --abyss:#011417; --hull:#02262B; --panel:rgba(2,86,94,.22); --grid:rgba(22,146,158,.13);
+  --teal:#16929E; --glow:#5FE0EA; --yellow:#FFC54B; --coral:#FF544B; --orange:#FFA04B;
+  --text:#D9F2F4; --dim:#7FA9AD;
+  --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;min-width:0}
+html{color-scheme:dark;scroll-behavior:smooth}
+body{margin:0;color:var(--text);font:15px/1.6 var(--mono);overflow-x:clip;
+  background:
+    radial-gradient(60% 50% at 78% 18%,rgba(22,146,158,.30),transparent 70%),
+    radial-gradient(40% 40% at 8% 90%,rgba(255,84,75,.10),transparent 70%),
+    repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px),
+    linear-gradient(var(--grid) 1px,transparent 1px) 0 0/48px 48px,
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/48px 48px,
+    linear-gradient(180deg,var(--hull),var(--abyss) 60%);}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 max(4vw,16px)}
+
+/* staggered load */
+.rv{opacity:0;transform:translateY(18px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d,0) * 110ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.rv{animation:none;opacity:1;transform:none}.sweep{animation:none!important}}
+
+/* top bar */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid rgba(95,224,234,.18)}
+.bar img{height:44px;width:auto;display:block}
+.bar nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--dim);padding:8px 0}
+.bar nav a:hover{color:var(--yellow)}
+.status{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--yellow);white-space:nowrap}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--yellow);box-shadow:0 0 12px var(--yellow)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:center;padding:clamp(40px,6vw,88px) 0 clamp(32px,5vw,64px)}
+.kick{font-size:13px;color:var(--glow);letter-spacing:.08em;text-transform:uppercase;margin:0 0 18px}
+h1{margin:0;font-family:var(--display);line-height:.78;text-transform:uppercase}
+h1 .thin{display:block;font-weight:100;font-size:clamp(96px,15vw,210px);color:var(--text);letter-spacing:.02em}
+h1 .heavy{display:block;font-weight:900;font-size:clamp(120px,19vw,270px);color:var(--yellow);text-shadow:8px 8px 0 var(--coral)}
+.sub{font-family:var(--display);font-weight:200;font-size:clamp(24px,2.6vw,36px);line-height:1.1;text-transform:uppercase;letter-spacing:.04em;margin:22px 0 28px;max-width:560px}
+.sub b{font-weight:800;color:var(--glow)}
+.data{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 22px;margin:0 0 30px;padding:18px 20px;border:1px solid rgba(95,224,234,.22);background:var(--panel);backdrop-filter:blur(2px);max-width:560px}
+.data dt{color:var(--dim);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:2px}
+.data dd{margin:0;font-weight:600}
+.data dd.hot{color:var(--yellow)}
+.go{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;font:800 20px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:2px solid var(--yellow);transition:transform .15s,box-shadow .15s}
+.btn.pri{background:var(--yellow);color:var(--abyss);box-shadow:5px 5px 0 var(--coral)}
+.btn.pri:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--coral)}
+.btn.ghost{color:var(--yellow)}
+.btn.ghost:hover{background:rgba(255,197,75,.1)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
+
+/* radar scope */
+.scope{position:relative;aspect-ratio:1;width:100%;max-width:480px;justify-self:center;border-radius:50%;
+  background:radial-gradient(circle,rgba(22,146,158,.25) 0,rgba(1,20,23,.9) 70%);
+  border:2px solid var(--teal);box-shadow:0 0 0 10px rgba(22,146,158,.08),0 0 60px rgba(95,224,234,.18),inset 0 0 60px rgba(0,0,0,.6)}
+.scope::before{content:"";position:absolute;inset:0;border-radius:50%;
+  background:repeating-radial-gradient(circle,transparent 0 calc(12.5% - 1px),rgba(95,224,234,.22) calc(12.5% - 1px) 12.5%),
+  linear-gradient(rgba(95,224,234,.2),rgba(95,224,234,.2)) center/1px 100% no-repeat,
+  linear-gradient(90deg,rgba(95,224,234,.2),rgba(95,224,234,.2)) center/100% 1px no-repeat}
+.sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(255,197,75,.45),rgba(255,197,75,0) 70deg,transparent 360deg);animation:spin 6s linear infinite;mix-blend-mode:screen}
+@keyframes spin{to{transform:rotate(360deg)}}
+.blip{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.blip i{width:12px;height:12px;border-radius:50%;background:var(--yellow);box-shadow:3px 3px 0 var(--coral),0 0 16px var(--yellow);flex:none}
+.blip.c i{background:var(--coral);box-shadow:0 0 16px var(--coral)}
+.blip span{background:rgba(1,20,23,.8);padding:2px 6px;border:1px solid rgba(95,224,234,.3)}
+.bearing{position:absolute;font-size:10px;color:var(--dim)}
+
+/* log strip */
+.log{border-top:1px solid rgba(95,224,234,.18);border-bottom:1px solid rgba(95,224,234,.18);background:rgba(1,20,23,.55)}
+.log ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.log li{padding:22px 20px;border-left:1px solid rgba(95,224,234,.14)}
+.log li:first-child{border-left:0}
+.log time{display:block;font-size:12px;color:var(--dim);letter-spacing:.06em}
+.log b{display:block;font:800 clamp(26px,2.6vw,34px)/1 var(--display);text-transform:uppercase;margin-top:6px}
+.log li.now b{color:var(--yellow)}
+.log li.now time{color:var(--coral)}
+
+/* brief */
+section{padding:clamp(56px,8vw,112px) 0}
+.brief{display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr);gap:clamp(20px,4vw,56px)}
+.label{font-size:12px;color:var(--glow);letter-spacing:.1em;text-transform:uppercase;border-top:2px solid var(--yellow);padding-top:12px}
+.brief p.big{font-family:var(--display);font-weight:200;font-size:clamp(32px,3.8vw,54px);line-height:1.05;text-transform:uppercase;margin:0}
+.brief p.big b{font-weight:900;color:var(--yellow)}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;background:rgba(95,224,234,.18);border:2px solid rgba(95,224,234,.18);margin-top:36px}
+.fmt{background:var(--abyss);padding:28px 22px 30px;position:relative;transition:background .2s}
+.fmt:hover{background:#04363C}
+.fmt b{display:block;font:900 clamp(64px,7vw,96px)/.85 var(--display);color:var(--text)}
+.fmt b small{font-weight:100;font-size:.42em;color:var(--glow)}
+.fmt h3{font:800 26px/1 var(--display);text-transform:uppercase;margin:16px 0 6px;color:var(--yellow)}
+.fmt p{margin:0;color:var(--dim);font-size:13px}
+
+/* sectors (venues) */
+.sectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px}
+.sector{position:relative;padding:32px 28px;min-height:280px;border:1px solid rgba(95,224,234,.25);overflow:hidden;
+  background:repeating-radial-gradient(circle at 85% 20%,transparent 0 22px,rgba(95,224,234,.07) 22px 23px),var(--panel)}
+.sector.res{border-color:rgba(255,84,75,.45);background:repeating-radial-gradient(circle at 85% 20%,transparent 0 22px,rgba(255,84,75,.08) 22px 23px),rgba(255,84,75,.06)}
+.sector .tag{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;background:var(--yellow);color:var(--abyss);font-weight:600}
+.sector.res .tag{background:var(--coral);color:#fff}
+.sector h3{font:900 clamp(40px,4.4vw,60px)/.9 var(--display);text-transform:uppercase;margin:18px 0 12px}
+.sector p{margin:0;color:var(--dim);max-width:440px}
+
+/* closing */
+.close{text-align:center;border-top:1px solid rgba(95,224,234,.18)}
+.close h2{margin:0 0 10px;font-family:var(--display);text-transform:uppercase;line-height:.85}
+.close h2 .thin{display:block;font-weight:100;font-size:clamp(48px,7vw,96px)}
+.close h2 .heavy{display:block;font-weight:900;font-size:clamp(72px,11vw,150px);color:var(--yellow);text-shadow:6px 6px 0 var(--coral)}
+.close p{color:var(--dim);margin:0 0 30px}
+.close .go{justify-content:center}
+footer{padding:28px 0 40px;font-size:12px;color:var(--dim);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-top:1px solid rgba(95,224,234,.12)}
+
+@media (max-width:900px){
+  .hero,.brief{grid-template-columns:minmax(0,1fr)}
+  .scope{max-width:340px;order:-1}
+  .log ol,.formats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .log li:nth-child(3){border-left:0}
+  .sectors{grid-template-columns:minmax(0,1fr)}
+  .bar nav{display:none}
+}
+@media (max-width:520px){
+  .log ol,.formats{grid-template-columns:minmax(0,1fr)}
+  .log li{border-left:0;border-top:1px solid rgba(95,224,234,.14)}
+  .scope{max-width:280px}
+  .blip{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar rv" style="--d:0">
+    <img src="../assets/img/naml27-logo-white.webp" alt="NAML – Naval Applications of Machine Learning" width="807" height="425">
+    <nav aria-label="Main"><a href="#brief">Workshop</a><a href="#formats">Call for Participation</a><a href="#sectors">Venues</a><a href="#close">Submit</a></nav>
+    <span class="status"><i></i>CFP open</span>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="kick rv" style="--d:1">11th Annual Workshop on Naval Applications of Machine Learning</p>
+      <h1><span class="thin rv" style="--d:2">NAML</span><span class="heavy rv" style="--d:3">2027</span></h1>
+      <p class="sub rv" style="--d:4">Machine learning for the <b>hardest problems</b> facing Naval forces and their partners</p>
+      <dl class="data rv" style="--d:5">
+        <dt>Dates</dt><dd>April 12–15, 2027</dd>
+        <dt>Location</dt><dd>San Diego, California</dd>
+        <dt>Abstracts</dt><dd class="hot">Due December 4, 2026 · <span id="tminus">T−</span></dd>
+        <dt>Audience</dt><dd>Government · Industry · Academia</dd>
+      </dl>
+      <div class="go rv" style="--d:6">
+        <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit an abstract</a>
+        <a class="btn ghost" href="#formats">Read the call</a>
+      </div>
+    </div>
+    <div class="scope rv" style="--d:3" role="img" aria-label="Radar display with markers for abstracts, La Jolla and NIWC Pacific">
+      <div class="sweep"></div>
+      <span class="bearing" style="top:3%;left:50%;transform:translateX(-50%)">000</span>
+      <span class="bearing" style="top:50%;right:3%;transform:translateY(-50%)">090</span>
+      <span class="bearing" style="bottom:3%;left:50%;transform:translateX(-50%)">180</span>
+      <span class="bearing" style="top:50%;left:3%;transform:translateY(-50%)">270</span>
+      <span class="blip" style="top:30%;left:36%"><i></i><span>Abstracts</span></span>
+      <span class="blip" style="top:58%;left:66%"><i></i><span>La Jolla · D1–2</span></span>
+      <span class="blip c" style="top:72%;left:34%"><i></i><span>NIWC Pac · D3–4</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="log rv" style="--d:7">
+  <ol class="wrap">
+    <li class="now"><time>2026-12-04</time><b>Abstract deadline</b></li>
+    <li><time>2027-02 (mid)</time><b>Author notification</b></li>
+    <li><time>Opening soon</time><b>Registration</b></li>
+    <li><time>2027-04-12 → 15</time><b>Workshop</b></li>
+  </ol>
+</div>
+
+<div class="wrap">
+  <section id="brief" class="brief">
+    <div class="label">Mission brief</div>
+    <p class="big">A forum for interdisciplinary experts from <b>government, industry and academia</b> to discuss ongoing work on the theory and applications of machine learning.</p>
+  </section>
+
+  <section id="formats" style="padding-top:0">
+    <div class="brief">
+      <div class="label">Call for participation</div>
+      <p style="margin:0;color:var(--dim);max-width:640px">Submit a short abstract (2,000 characters or less). Abstracts must be unclassified and may contain up to CUI. Sales pitches and overt product promotion will not be considered.</p>
+    </div>
+    <div class="formats">
+      <div class="fmt"><b>20<small>MIN</small></b><h3>Short talk</h3><p>Talk or demonstration with Q&amp;A</p></div>
+      <div class="fmt"><b>5<small>MIN</small></b><h3>Lightning talk</h3><p>Short talk with networking Q&amp;A</p></div>
+      <div class="fmt"><b>PST<small></small></b><h3>Poster</h3><p>Publicly releasable only, networking Q&amp;A</p></div>
+      <div class="fmt"><b>+<small>NEW</small></b><h3>Other</h3><p>Propose a panel or special session</p></div>
+    </div>
+    <p style="font-size:12px;color:var(--dim);margin-top:12px">Presentation formats are subject to change.</p>
+  </section>
+
+  <section id="sectors" style="padding-top:0">
+    <div class="brief">
+      <div class="label">Sectors</div>
+      <p style="margin:0;color:var(--dim)">Four days, two venues, two access levels.</p>
+    </div>
+    <div class="sectors">
+      <div class="sector"><span class="tag">Days 1–2 · Open</span><h3>Hyatt Regency<br>La Jolla</h3><p>Open to all registered participants.</p></div>
+      <div class="sector res"><span class="tag">Days 3–4 · Restricted</span><h3>NIWC<br>Pacific</h3><p>Appropriately cleared attendees with a CAC or similar government ID, or able to obtain a DBIDS credential.</p></div>
+    </div>
+  </section>
+
+  <section id="close" class="close">
+    <h2><span class="thin">Abstracts due</span><span class="heavy">Dec 4</span></h2>
+    <p>No fee to submit. Registration fee waived for government civilians and military personnel.</p>
+    <div class="go"><a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit an abstract</a><a class="btn ghost" href="mailto:naml@us.navy.mil">naml@us.navy.mil</a></div>
+  </section>
+
+  <footer><span>NAML 2027 · AFCEA San Diego · NIWC Pacific · Underline Science</span><span>Concept "CIC" – design study</span></footer>
+</div>
+
+<script>
+{
+  const el=document.getElementById('tminus');
+  const end=new Date('2026-12-04T23:59:59-08:00').getTime();
+  const tick=()=>{const t=end-Date.now();if(!el)return;if(t<=0){el.textContent='closed';return}
+    const d=Math.floor(t/864e5),h=Math.floor(t/36e5)%24,m=Math.floor(t/6e4)%60;el.textContent=`T−${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m`};
+  tick();setInterval(tick,30000);
+}
+</script>
+</body>
+</html>
