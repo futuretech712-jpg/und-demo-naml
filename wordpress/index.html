@@ -207,6 +207,12 @@
   .naml .btn{white-space:normal;text-align:center}
 }
 
+/* Home hero radar */
+.naml .radar{justify-self:center;width:100%;max-width:520px}
+.naml .radar svg{display:block;width:100%;height:auto}
+@media (max-width:900px){.naml .radar{max-width:340px;order:-1}}
+@media (max-width:600px){.naml .radar{max-width:240px}}
+
 </style>
 <div class="naml">
 <section class="hero band">
@@ -229,60 +235,14 @@
         </div>
       </div>
     </div>
-    <svg class="scene" viewBox="0 0 800 560" role="img" aria-label="Illustration: a naval ship on the San Diego horizon at sunset, with a sonar sensor network beneath the water" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="hz-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#02565E"/><stop offset=".62" stop-color="#16929E"/><stop offset="1" stop-color="#FFA04B"/></linearGradient>
-    <linearGradient id="hz-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16929E"/><stop offset=".35" stop-color="#02565E"/><stop offset="1" stop-color="#013A40"/></linearGradient>
-    <radialGradient id="hz-sun"><stop offset="0" stop-color="#FFE29A"/><stop offset=".6" stop-color="#FFC54B"/><stop offset="1" stop-color="#FFA04B"/></radialGradient>
-    <linearGradient id="hz-beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFC54B" stop-opacity="0"/><stop offset="1" stop-color="#FFC54B" stop-opacity=".35"/></linearGradient>
-    <clipPath id="hz-water"><rect x="0" y="300" width="800" height="260"/></clipPath>
-  </defs>
-  <rect width="800" height="300" fill="url(#hz-sky)"/>
-  <circle cx="560" cy="250" r="96" fill="url(#hz-sun)"/>
-  <circle cx="560" cy="250" r="128" fill="none" stroke="#FFC54B" stroke-opacity=".25" stroke-width="2"/>
-  <g fill="#ffffff" fill-opacity=".14">
-    <ellipse cx="140" cy="110" rx="90" ry="14"/><ellipse cx="210" cy="92" rx="60" ry="12"/>
-    <ellipse cx="660" cy="80" rx="70" ry="11"/><ellipse cx="720" cy="96" rx="50" ry="9"/>
-  </g>
-  <!-- distant Point Loma ridge -->
-  <path d="M0 300 L0 262 C60 250 110 258 160 246 C210 236 250 252 300 258 C330 262 350 270 380 300 Z" fill="#02565E" opacity=".85"/>
-  <rect y="300" width="800" height="260" fill="url(#hz-sea)"/>
-  <!-- sun glitter -->
-  <g fill="#FFC54B" opacity=".55">
-    <rect x="500" y="312" width="120" height="4" rx="2"/><rect x="520" y="326" width="80" height="3" rx="1.5"/>
-    <rect x="535" y="338" width="50" height="3" rx="1.5"/><rect x="548" y="350" width="24" height="2" rx="1"/>
-  </g>
-  <!-- sonar under water -->
-  <g clip-path="url(#hz-water)">
-    <g transform="translate(400 470)">
-      <g fill="none" stroke="#8FD3D9" stroke-opacity=".28" stroke-width="1.5">
-        <circle r="60"/><circle r="120"/><circle r="180"/><circle r="240"/><circle r="300"/>
-      </g>
-      <path class="sweep" d="M0 0 L300 0 A300 300 0 0 0 212 -212 Z" fill="url(#hz-beam)"/>
-    </g>
-    <g stroke="#8FD3D9" stroke-opacity=".55" stroke-width="2">
-      <line x1="400" y1="470" x2="300" y2="420"/><line x1="400" y1="470" x2="500" y2="430"/><line x1="300" y1="420" x2="210" y2="470"/>
-      <line x1="500" y1="430" x2="610" y2="470"/><line x1="300" y1="420" x2="400" y2="380"/><line x1="400" y1="380" x2="500" y2="430"/>
-      <line x1="210" y1="470" x2="130" y2="420"/><line x1="610" y1="470" x2="690" y2="410"/><line x1="400" y1="470" x2="420" y2="540"/>
-    </g>
-    <g>
-      <circle cx="403" cy="473" r="12" fill="#FF544B"/><circle cx="400" cy="470" r="12" fill="#FFA04B"/>
-      <g fill="#FF544B"><circle cx="303" cy="423" r="7"/><circle cx="503" cy="433" r="7"/><circle cx="213" cy="473" r="7"/><circle cx="613" cy="473" r="7"/><circle cx="403" cy="383" r="7"/><circle cx="133" cy="423" r="7"/><circle cx="693" cy="413" r="7"/><circle cx="423" cy="543" r="7"/></g>
-      <g fill="#FFC54B"><circle cx="300" cy="420" r="7"/><circle cx="500" cy="430" r="7"/><circle cx="210" cy="470" r="7"/><circle cx="610" cy="470" r="7"/><circle cx="400" cy="380" r="7"/><circle cx="130" cy="420" r="7"/><circle cx="690" cy="410" r="7"/><circle cx="420" cy="540" r="7"/></g>
-    </g>
-  </g>
-  <!-- ship with the logo's coral offset shadow -->
-  <g class="bob">
-    <path transform="translate(7 6)" fill="#FF544B" d="M150 304 L162 286 L236 284 L240 274 L300 274 L302 260 L344 260 L348 240 L374 240 L376 222 L384 222 L386 186 L391 186 L393 222 L401 224 L403 240 L424 242 L426 260 L470 262 L472 276 L520 278 L556 278 L536 304 Z"/>
-    <path fill="#FFC54B" d="M150 304 L162 286 L236 284 L240 274 L300 274 L302 260 L344 260 L348 240 L374 240 L376 222 L384 222 L386 186 L391 186 L393 222 L401 224 L403 240 L424 242 L426 260 L470 262 L472 276 L520 278 L556 278 L536 304 Z"/>
-    <path d="M378 200 h20 M380 210 h16" stroke="#FFC54B" stroke-width="3"/>
-    <rect x="150" y="302" width="390" height="5" rx="2.5" fill="#ffffff" opacity=".35"/>
-  </g>
-  <!-- wake -->
-  <g fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round">
-    <path d="M150 318 C110 320 80 324 30 330"/><path d="M160 330 C120 334 90 340 50 350"/>
-  </g>
-</svg>
+    <div class="radar"><svg viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="300" cy="300" r="290" fill="#02565E"/>
+  <g fill="none" stroke="#8FD3D9" stroke-opacity=".28"><circle cx="300" cy="300" r="70"/><circle cx="300" cy="300" r="140"/><circle cx="300" cy="300" r="210"/><circle cx="300" cy="300" r="280"/><path d="M20 300H580M300 20V580"/></g>
+  <path class="sweep" d="M300 300L580 300A280 280 0 0 0 498 102Z" fill="#FFC54B" fill-opacity=".22"/>
+  <g class="naml-net"></g>
+  <circle cx="300" cy="300" r="290" fill="none" stroke="#FFC54B" stroke-width="5"/>
+  <circle cx="307" cy="307" r="290" fill="none" stroke="#FF544B" stroke-width="5" stroke-opacity=".75"/>
+</svg></div>
   </div>
 </section>
 <div class="stripe"></div>
