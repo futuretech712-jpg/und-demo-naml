@@ -212,13 +212,16 @@
 .naml .ghead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:24px;border-bottom:2px solid var(--line);padding-bottom:12px}
 .naml .ghead h2{font-size:clamp(34px,4vw,46px);color:var(--dteal);text-shadow:3px 3px 0 var(--yellow)}
 .naml .ghead a{color:var(--coral);font-weight:600}
-.naml .people{display:flex;flex-wrap:wrap;gap:28px 36px}
-.naml .person{width:200px;text-align:center}
-.naml .ph{position:relative;width:168px;height:168px;margin:0 auto 14px;border-radius:50%;background:var(--teal);box-shadow:6px 6px 0 var(--coral);border:5px solid var(--yellow);overflow:hidden}
-.naml .ph::before{content:attr(data-i);position:absolute;inset:0;display:grid;place-items:center;font:400 56px/1 "Bebas Neue",sans-serif;color:#fff}
-.naml .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.naml .person h3{font-size:28px;color:var(--dteal);margin-bottom:2px}
-.naml .person p{color:var(--muted);font-size:15px;margin:0}
+.naml .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,240px));gap:24px}
+.naml .person{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 10px 18px;transition:transform .2s,box-shadow .2s}
+.naml .person:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(1,58,64,.14)}
+.naml .ph{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--teal),var(--dteal));margin-bottom:14px}
+.naml .ph::before{content:attr(data-i);position:absolute;inset:0;display:grid;place-items:center;font:400 64px/1 "Bebas Neue",sans-serif;color:rgba(255,255,255,.9)}
+.naml .ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--yellow) 0 60%,var(--orange) 60% 80%,var(--coral) 80%)}
+.naml .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.naml .person:hover .ph img{transform:scale(1.04)}
+.naml .person h3{font-size:26px;color:var(--dteal);margin:0 6px 2px}
+.naml .person p{color:var(--muted);font-size:14px;margin:0 6px;line-height:1.4}
 .naml .logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .naml .logos a{display:flex;flex-direction:column;align-items:center;gap:14px;background:#fff;border-radius:10px;padding:28px 20px;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
 .naml .logos a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--yellow)}
@@ -226,7 +229,7 @@
 .naml .lg::before{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;font:400 30px/1 "Bebas Neue",sans-serif;color:var(--teal);border:2px dashed var(--line);border-radius:8px}
 .naml .lg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
 .naml .logos b{color:var(--dteal);font-weight:600}
-@media (max-width:600px){.naml .people{justify-content:center}.naml .logos{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:600px){.naml .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.naml .logos{grid-template-columns:minmax(0,1fr)}}
 
 /* Sponsor tiers */
 .naml .tier{margin-bottom:36px}
