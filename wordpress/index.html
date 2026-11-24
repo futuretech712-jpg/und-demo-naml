@@ -355,7 +355,16 @@
 .naml .note.dark{color:#9CC3C7;margin-top:24px}
 .naml .note.dark a{color:var(--yellow)}
 /* phones: key info first, radar after the hero text */
-@media (max-width:900px){.naml .hero .scope{order:1;max-width:300px;margin-top:8px}}
+@media (max-width:900px){.naml .hero .radarbox{order:1;margin-top:8px}.naml .hero .radarbox .scope{max-width:300px}}
+
+/* radar + legend */
+.naml .radarbox{justify-self:center;width:100%;max-width:clamp(320px,36vw,600px);display:flex;flex-direction:column;align-items:center;gap:22px}
+.naml .legend{list-style:none;margin:0;padding:14px 16px;display:grid;gap:10px;width:100%;max-width:520px;background:rgba(1,20,23,.6);border:1px solid rgba(95,224,234,.25);border-radius:6px}
+.naml .legend li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;align-items:start;font:400 13px/1.45 var(--mono);color:#B9D9DC}
+.naml .legend i{width:12px;height:12px;border-radius:50%;margin-top:3px;background:var(--yellow);box-shadow:2px 2px 0 var(--coral)}
+.naml .legend li.c i{background:var(--coral);box-shadow:none}
+.naml .legend b{display:block;font-weight:600;color:#fff;letter-spacing:.04em;text-transform:uppercase}
+.naml .legend li.c b{color:#FFB3AE}
 
 </style>
 <div class="naml">
@@ -394,7 +403,8 @@
         </div>
       </div>
     </div>
-    <div class="scope" role="img" aria-label="Radar display with markers for San Diego, La Jolla and NIWC Pacific">
+    <div class="radarbox">
+    <div class="scope" role="img" aria-label="Radar display: San Diego, La Jolla for days 1–2 and NIWC Pacific for days 3–4">
       <svg class="scope-face" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="rd-disc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#05424A"/><stop offset=".7" stop-color="#022A30"/><stop offset="1" stop-color="#011417"/></radialGradient>
@@ -414,9 +424,14 @@
       </svg>
       <div class="sweep"></div>
       <span class="blip" style="top:31%;left:30%"><i></i><span>San Diego, CA<b> · </b><em>32°43′N 117°10′W</em></span></span>
-      <span class="blip" style="top:57%;left:60%;--pd:1.4s"><i></i><span>La Jolla · D1–2</span></span>
-      <span class="blip c" style="top:70%;left:33%;--pd:2.6s"><i></i><span>NIWC Pac · D3–4</span></span>
+      <span class="blip" style="top:57%;left:50%;--pd:1.4s"><i></i><span>La Jolla · Days 1–2</span></span>
+      <span class="blip c" style="top:70%;left:30%;--pd:2.6s"><i></i><span>NIWC Pacific · Days 3–4</span></span>
     </div>
+    <ul class="legend">
+      <li><i></i><span><b>Days 1–2 · Apr 12–13</b> Hyatt Regency La Jolla · open to all participants</span></li>
+      <li class="c"><i></i><span><b>Days 3–4 · Apr 14–15</b> NIWC Pacific · appropriately cleared attendees only</span></li>
+    </ul>
+  </div>
   </div>
 </section>
 <div class="stripe"></div>
