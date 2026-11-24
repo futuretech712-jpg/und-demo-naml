@@ -37,6 +37,9 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Dani 1–2 su teal (open), dani 3–4 koralj (restricted), dosljedno svugdje.
 - FAQ je na naslovnici (`#faq`). Odgovori smiju biti samo iz službenog CfP-a.
 - Mailto linkovi imaju unaprijed upisan naslov (`?subject=`).
+- Bez "AI znakova" (vidi falia.co članak): nema srednjih točkica "·" kao razdjelnika, nema dugih crtica (– —), nema strelica na linkovima i gumbima. Rasponi datuma pišu se s običnom crticom (April 12-15), kao na naml2026.org. Nema kutija s brojkama ni tri jednake kartice; koristi rečenicu, tablicu (`part:dates`) ili listu (`.next`, `part:types`).
+- Tamni CIC dijelovi i monospace oznake ostaju (namjerna odluka), ali bez jakog sjaja. Hover samo na gumbima, linkovima i karticama koje su linkovi.
+- WP blokovi se generiraju bez komentara u CSS-u i JS-u.
 - Nakon izmjena pokreni QA: svi linkovi i sidra, ID-ovi, alt, JS greške (vidi AUDIT.md).
 - CSS i JS imaju `?v=hash` u linkovima (cache-busting) koji dodaje build.
 

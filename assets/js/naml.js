@@ -1,4 +1,4 @@
-/* NAML 2027 – shared behaviour (mobile menu, countdown). Safe to include on every page and in WordPress blocks. */
+/* NAML 2027: shared behaviour (mobile menu, countdown). Safe to include on every page and in WordPress blocks. */
 {
   // Mobile menu is a <details> element (works without JS). Close it after a link is chosen or on Escape.
   for (const d of document.querySelectorAll('.naml .mnav')) {
