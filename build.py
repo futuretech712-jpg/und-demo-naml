@@ -12,7 +12,7 @@ import pathlib, re, hashlib
 
 ROOT = pathlib.Path(__file__).parent
 SITE_URL = "https://futuretech712-jpg.github.io/und-demo-naml/"  # used for images in WordPress blocks
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">'
 
 MENU = [  # (page, label)
     ("index", "Home"),
@@ -28,6 +28,7 @@ def site_link(p): return "index.html" if p == "index" else f"{p}.html"
 def wp_link(p): return "/" if p == "index" else f"/{p}/"
 
 def render(body, link, base):
+    body = re.sub(r"\{\{part:([\w-]+)\}\}", lambda m: (ROOT / "src/parts" / f"{m[1]}.html").read_text().strip(), body)
     body = re.sub(r"\{\{svg:([\w-]+)\}\}", lambda m: (ROOT / "src/svg" / f"{m[1]}.svg").read_text().strip(), body)
     body = re.sub(r"\{\{link:([\w-]+)\}\}", lambda m: link(m[1]), body)
     return body.replace("{{base}}", base)
