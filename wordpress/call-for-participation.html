@@ -13,7 +13,7 @@
    Everything is scoped under .naml so the same CSS can be pasted into a WordPress/Elementor HTML widget. */
 
 .naml{--teal:#16929E;--dteal:#02565E;--deep:#013A40;--coral:#FF544B;--yellow:#FFC54B;--orange:#FFA04B;
-  --paper:#fff;--mist:#E8F4F5;--ink:#0D2A2D;--muted:#4C6669;--line:#CFE3E5;
+  --paper:#fff;--coral-ink:#C2352D;--mist:#E8F4F5;--ink:#0D2A2D;--muted:#4C6669;--line:#CFE3E5;
   font:16px/1.6 Barlow,system-ui,sans-serif;color:var(--ink);background:var(--paper);overflow-x:clip}
 .naml *{box-sizing:border-box;min-width:0}
 .naml h1,.naml h2,.naml h3{font-family:"Bebas Neue",Barlow,sans-serif;font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:.01em}
@@ -45,7 +45,7 @@
 .naml .menu{display:flex;align-items:center;gap:2px}
 .naml .menu a{text-decoration:none;font-weight:600;color:var(--dteal);padding:10px 12px;border-radius:4px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
 .naml .menu a:hover{background:var(--mist)}
-.naml .menu a[aria-current=page]{color:var(--coral);box-shadow:inset 0 -3px 0 var(--coral);border-radius:4px 4px 0 0}
+.naml .menu a[aria-current=page]{color:var(--deep);box-shadow:inset 0 -3px 0 var(--coral);border-radius:4px 4px 0 0}
 .naml .menu .btn{margin-left:10px;color:var(--deep)}
 .naml .burger{display:none;background:none;border:2px solid var(--dteal);border-radius:4px;width:48px;height:44px;cursor:pointer;color:var(--dteal);font:600 15px Barlow,sans-serif}
 @media (max-width:1240px){
@@ -117,7 +117,7 @@
 .naml .type{border-radius:8px;padding:24px;background:var(--mist);position:relative;overflow:hidden}
 .naml .mist .type{background:#fff}
 .naml .type::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--c,var(--teal))}
-.naml .type b{display:block;font:400 48px/1 "Bebas Neue",sans-serif;color:var(--c,var(--teal));margin-bottom:6px}
+.naml .type b{display:block;font:400 48px/1 "Bebas Neue",sans-serif;color:var(--dteal);margin-bottom:6px}
 .naml .type h3{font-size:26px;color:var(--dteal);margin-bottom:6px}
 .naml .type p{color:var(--muted);font-size:15px;margin:0}
 
@@ -128,7 +128,7 @@
 .naml .card div{padding:20px 22px 24px}
 .naml .card h3{font-size:30px;color:var(--dteal);margin-bottom:6px}
 .naml .card p{color:var(--muted);margin:0}
-.naml .card .go{display:inline-block;margin-top:12px;font-weight:700;color:var(--coral)}
+.naml .card .go{display:inline-block;margin-top:12px;font-weight:700;color:var(--coral-ink)}
 
 /* Venues */
 .naml .venue{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:clamp(40px,6vw,72px)}
@@ -154,8 +154,8 @@
 .naml .year:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--coral)}
 .naml .year b{font:400 72px/.9 "Bebas Neue",sans-serif;color:var(--yellow)}
 .naml .year span{font-weight:600}
-.naml .year small{display:block;color:#BFE3E6;font-size:14px;margin-top:4px}
-.naml .year.alt{background:var(--teal)}
+.naml .year small{display:block;color:#E3F2F3;font-size:14px;margin-top:4px}
+.naml .year.alt{background:#117680}
 .naml .year.all{background:var(--yellow);color:var(--deep)}
 .naml .year.all b{color:var(--deep)}
 .naml .year.all small{color:var(--dteal)}
@@ -303,6 +303,60 @@
 .naml .scope .blip b{font-weight:inherit}.naml .scope .blip em{font-style:normal}
 @media (max-width:600px){.naml .scope .blip b{display:none}.naml .scope .blip em{display:block;color:#9CC3C7}}
 
+/* ---- Review pass: a11y, mobile CTA, FAQ, access matrix, calendar, steps ---- */
+.naml .skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--yellow);color:var(--deep);font-weight:700;padding:10px 16px;border-radius:4px;text-decoration:none}
+.naml .skip:focus{top:12px}
+.naml main:focus{outline:none}
+.naml .msub{display:none;min-height:44px;padding:0 16px;box-shadow:3px 3px 0 var(--coral)}
+@media (max-width:1240px){.naml .msub{display:inline-flex;margin-left:auto}}
+.naml .top .burger{flex:none}
+
+/* timeline semantics */
+.naml .timeline li.res{border-top-color:var(--coral)}
+.naml .timeline li.open{border-top-color:var(--teal)}
+.naml .timeline li.res b{color:var(--dteal)}
+
+/* calendar buttons */
+.naml .cal{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:-16px;margin-bottom:36px}
+.naml .cal span{font-weight:600;color:var(--muted);margin-right:4px}
+.naml .cal a{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:4px;border:1.5px solid var(--dteal);color:var(--dteal);font-weight:600;font-size:14px;text-decoration:none;background:#fff}
+.naml .cal a:hover{background:var(--dteal);color:#fff}
+
+/* steps inside the submit panel */
+.naml .steps{list-style:none;counter-reset:s;margin:6px 0 22px;padding:0}
+.naml .steps li{counter-increment:s;position:relative;padding:0 0 12px 40px;margin:0}
+.naml .steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--deep);font:400 18px/28px "Bebas Neue",sans-serif;text-align:center}
+.naml .cta .steps li{color:#E6F4F5}
+
+/* FAQ */
+.naml .faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 24px;align-items:start}
+.naml .faq details{background:#fff;border:1px solid var(--line);border-radius:8px}
+.naml .faq summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-weight:700;color:var(--dteal);position:relative;min-height:44px}
+.naml .faq summary::-webkit-details-marker{display:none}
+.naml .faq summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--mist);color:var(--dteal);font:600 20px/26px Barlow,sans-serif;text-align:center}
+.naml .faq details[open] summary::after{content:"–";background:var(--yellow)}
+.naml .faq summary:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:8px}
+.naml .faq details p{margin:0;padding:0 18px 18px;color:var(--ink)}
+@media (max-width:800px){.naml .faq{grid-template-columns:minmax(0,1fr)}}
+
+/* access matrix */
+.naml .access{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.naml .access th,.naml .access td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.naml .access thead th{background:var(--dteal);color:#fff;font:400 22px/1 "Bebas Neue",sans-serif;letter-spacing:.02em}
+.naml .access tr:last-child td{border-bottom:0}
+.naml .access td:first-child{font-weight:700;color:var(--dteal)}
+.naml .yes{color:#0B6B4F;font-weight:700}
+.naml .cond{color:var(--coral-ink);font-weight:700}
+@media (max-width:600px){.naml .access thead{display:none}.naml .access tr{display:grid;padding:10px 0;border-bottom:1px solid var(--line)}.naml .access td{border:0;padding:4px 16px}.naml .access td::before{content:attr(data-l);display:block;font-size:12px;color:var(--muted);font-weight:600}}
+
+/* venue address */
+.naml .sector address{font:400 14px/1.6 var(--mono);font-style:normal;color:#D9F2F4;margin:0 0 18px;padding-left:12px;border-left:2px solid var(--yellow)}
+.naml .sector.res address{border-left-color:var(--coral)}
+.naml .note.dark{color:#9CC3C7;margin-top:24px}
+.naml .note.dark a{color:var(--yellow)}
+/* phones: key info first, radar after the hero text */
+@media (max-width:900px){.naml .hero .scope{order:1;max-width:300px;margin-top:8px}}
+
 </style>
 <div class="naml">
 <section class="phero gridbg">
@@ -345,6 +399,13 @@
       <li><b>Opening soon</b><span>Workshop registration</span></li>
       <li><b>Apr 12–15, 2027</b><span>Workshop in San Diego</span></li>
     </ol>
+    <div class="cal">
+      <span>Add to calendar:</span>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=NAML%202027%20%E2%80%93%20abstract%20deadline&amp;dates=20261204/20261205&amp;details=Submit%20your%20abstract%3A%20https%3A%2F%2Fgo.mil%2Fnaml2027sub" target="_blank" rel="noopener">Abstract deadline · Google</a>
+      <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/cal/naml2027-abstract-deadline.ics">Abstract deadline · .ics</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=NAML%202027%20%E2%80%93%20Naval%20Applications%20of%20Machine%20Learning&amp;dates=20270412/20270416&amp;location=San%20Diego%2C%20California&amp;details=https%3A%2F%2Fgo.mil%2Fnaml" target="_blank" rel="noopener">Workshop · Google</a>
+      <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/cal/naml2027-workshop.ics">Workshop · .ics</a>
+    </div>
     <div class="two">
       <div class="panel">
         <h3>Abstract submission</h3>
@@ -358,10 +419,15 @@
         <p class="warn">Do not submit classified information into the submission form.</p>
       </div>
       <div class="panel cta">
-        <h3>Ready to submit?</h3>
-        <p>Use the official NAML 2027 abstract submission form. There is no fee to submit an abstract for consideration.</p>
+        <h3>How to submit</h3>
+        <ol class="steps">
+          <li>Pick a format: short talk, lightning talk, poster or another format.</li>
+          <li>Write an abstract of 2,000 characters or less. Unclassified, up to CUI.</li>
+          <li>Check it is not a sales pitch and that you can obtain release approval for your materials.</li>
+          <li>Submit through the official form by December 4, 2026.</li>
+        </ol>
         <p><a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Open the submission form</a></p>
-        <p class="note">go.mil/naml2027sub</p>
+        <p class="note" style="margin-bottom:0">go.mil/naml2027sub · no fee to submit · notifications by mid-February 2027</p>
       </div>
     </div>
   </div>
@@ -373,8 +439,8 @@
     <div class="types">
       <div class="type"><b>20 min</b><h3>Short talks</h3><p>Talk or demonstration with Q&amp;A</p></div>
       <div class="type" style="--c:#FF544B"><b>5 min</b><h3>Lightning talks</h3><p>Short talk with networking Q&amp;A</p></div>
-      <div class="type" style="--c:#E8A21A"><b>Poster</b><h3>Posters</h3><p>Publicly releasable only, with networking Q&amp;A</p></div>
-      <div class="type" style="--c:#F07F1E"><b>Other</b><h3>Other content</h3><p>Suggest a format such as a panel or special session</p></div>
+      <div class="type" style="--c:#FFC54B"><b>Poster</b><h3>Poster session</h3><p>Publicly releasable only, with networking Q&amp;A</p></div>
+      <div class="type" style="--c:#FFA04B"><b>Your idea</b><h3>Other formats</h3><p>Suggest a panel, special session or another format</p></div>
     </div>
     <p class="note">Presentation formats are subject to change.</p>
   </div>
@@ -389,36 +455,38 @@
     </div>
     <div class="panel">
       <h3>Questions?</h3>
-      <p>Email the organizing committee at <a href="mailto:naml@us.navy.mil">naml@us.navy.mil</a>.</p>
-      <p style="margin:0">Workshop venues and access rules are on the <a href="/venues/">Venues</a> page.</p>
+      <p>Email the organizing committee at <a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a>.</p>
+      <p>Registration and platform questions: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a>.</p>
+      <p style="margin:0">More answers in the <a href="/#faq">FAQ</a>; access rules are on the <a href="/venues/">Venues</a> page.</p>
     </div>
   </div>
 </section>
 
 </div>
 <script>
-/* NAML 2027 – shared behaviour (menu, countdown, sonar network). Safe to include on every page. */
+/* NAML 2027 – shared behaviour (mobile menu, countdown). Safe to include on every page and in WordPress blocks. */
 {
-  // Mobile menu
+  // Mobile menu: toggle, close on Escape, on link click and on outside click
   const burger = document.querySelector('.naml .burger');
   const menu = document.getElementById('naml-menu');
   if (burger && menu) {
-    burger.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
+    const setOpen = (open) => {
+      menu.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', String(open));
+      burger.textContent = open ? 'Close' : 'Menu';
+    };
+    burger.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) { setOpen(false); burger.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) setOpen(false);
     });
   }
 
-  // Sensor network inside every sonar plot (<g class="naml-net">, 600x600 viewBox)
-  const pts = [[300,300],[380,240],[430,330],[250,200],[190,320],[330,420],[460,180],[150,220],[240,460],[420,450],[520,300],[110,360],[350,110],[200,110]];
-  const links = [[0,1],[0,3],[0,4],[0,5],[1,2],[1,6],[1,12],[2,10],[2,9],[3,13],[3,7],[4,11],[4,8],[5,8],[5,9],[6,10],[7,11],[12,13],[3,12]];
-  for (const g of document.querySelectorAll('.naml-net')) {
-    g.innerHTML =
-      links.map(([a,b]) => `<line x1="${pts[a][0]}" y1="${pts[a][1]}" x2="${pts[b][0]}" y2="${pts[b][1]}" stroke="#8FD3D9" stroke-opacity=".55" stroke-width="2"/>`).join('') +
-      pts.map(([x,y],i) => `<circle cx="${x+3}" cy="${y+3}" r="${i?8:13}" fill="#FF544B"/><circle cx="${x}" cy="${y}" r="${i?8:13}" fill="${i?'#FFC54B':'#FFA04B'}"/>`).join('');
-  }
-
-  // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time)
+  // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time).
+  // The visible cells are aria-hidden; screen readers get the static deadline text.
   const box = document.getElementById('naml-count');
   if (box) {
     const end = new Date('2026-12-04T23:59:59-08:00').getTime();
@@ -430,7 +498,7 @@
         clearInterval(timer);
         return;
       }
-      const v = { d: Math.floor(t/864e5), h: Math.floor(t/36e5)%24, m: Math.floor(t/6e4)%60, s: Math.floor(t/1e3)%60 };
+      const v = { d: Math.floor(t / 864e5), h: Math.floor(t / 36e5) % 24, m: Math.floor(t / 6e4) % 60, s: Math.floor(t / 1e3) % 60 };
       for (const k in v) {
         const el = box.querySelector(`[data-u="${k}"]`);
         if (el) el.textContent = String(v[k]).padStart(2, '0');

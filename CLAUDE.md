@@ -25,7 +25,12 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Logotipi sponzora i organizacija su u zaobljenim bijelim pločicama (`.spon`), a osobe u karticama (`.person`).
 - "CIC" mrežasta pozadina (`.gridbg`) samo na tamnim dijelovima: heroji, page heroji i sekcija lokacija. Bijele sekcije ostaju bijele.
 - Venues koristi tamne "sektor" kartice (`.sector`) umjesto slika lokacija; ne stavljati fotografije lokacija dok se ne potvrdi smijemo li.
-- Placeholder `{{part:ime}}` ubacuje HTML iz `src/parts/`.
+- Placeholder `{{part:ime}}` ubacuje HTML iz `src/parts/` (radar, radar-mini, cal = dodavanje u kalendar, types = vrste prezentacija).
+- Kontrast: koralj #FF544B nikad kao sitan tekst na svijetlom, nego `--coral-ink` #C2352D. Žuta i narančasta samo kao pozadine ili trake, ne kao tekst na svijetlom.
+- Dani 1–2 su teal (open), dani 3–4 koralj (restricted), dosljedno svugdje.
+- FAQ je na naslovnici (`#faq`). Odgovori smiju biti samo iz službenog CfP-a.
+- Mailto linkovi imaju unaprijed upisan naslov (`?subject=`).
+- Nakon izmjena pokreni QA: svi linkovi i sidra, ID-ovi, alt, JS greške (vidi AUDIT.md).
 - CSS i JS imaju `?v=hash` u linkovima (cache-busting) koji dodaje build.
 
 ## Stranice
@@ -38,6 +43,7 @@ Home, Call for Participation, Agenda (za NAML 2027; Underline embed je zakomenti
 - Abstract forma: https://go.mil/naml2027sub · info: https://go.mil/naml
 
 ## Otvoreno
+- Vidi i `AUDIT.md` (zona roka, NIWC zgrada i pristup, potvrda tablice pristupa, .ics i slike u WP Media Library).
 - Fotografije organizatora i logotipi sponzora učitavaju se s naml2026.org. Za WordPress ih treba prebaciti u Media Library.
 - Odbor za 2027 još nije potvrđen (CfP potpisuju Erin Hausmann i Pedro Forero). Website chair je Rafael-Leopold Grabovica (bez linka, samo slika).
 - Link NAML 2026 na Underlineu (events/508/reception) nije provjeren.

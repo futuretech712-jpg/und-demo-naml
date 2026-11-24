@@ -39,6 +39,7 @@ def header(active):
     return f'''<header class="top">
     <div class="wrap">
       <a class="brand" href="index.html" aria-label="NAML 2027 home"><img src="assets/img/naml27-logo-color.webp" alt="NAML – Naval Applications of Machine Learning" width="807" height="425"></a>
+      <a class="btn pri msub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="naml-menu">Menu</button>
       <nav class="menu" id="naml-menu" aria-label="Main">
 {items}
@@ -55,15 +56,15 @@ FOOTER = '''<footer class="band foot" id="contact">
       </div>
       <div>
         <h3>Workshop</h3>
-        <ul>''' + "".join(f'<li><a href="{site_link(p)}">{l}</a></li>' for p, l in MENU[1:]) + '''</ul>
+        <ul>''' + "".join(f'<li><a href="{site_link(p)}">{l}</a></li>' for p, l in MENU[1:]) + '''<li><a href="index.html#faq">FAQ</a></li></ul>
       </div>
       <div>
         <h3>Contact</h3>
         <ul>
-          <li><a href="mailto:naml@us.navy.mil">naml@us.navy.mil</a></li>
+          <li><a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a></li>
           <li><a href="https://go.mil/naml" target="_blank" rel="noopener">go.mil/naml</a></li>
-          <li>Sponsorship: <a href="mailto:racurato@deloitte.com">racurato@deloitte.com</a></li>
-          <li>Platform, registration and Underline support: <a href="mailto:naml2027@underline.io">naml2027@underline.io</a></li>
+          <li>Sponsorship: <a href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">racurato@deloitte.com</a></li>
+          <li>Platform, registration and Underline support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration%20%2F%20platform">naml2027@underline.io</a></li>
         </ul>
       </div>
     </div>
@@ -88,6 +89,13 @@ def main():
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="NAML 2027 – the 11th Annual Workshop on Naval Applications of Machine Learning, April 12–15, 2027, San Diego, California.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NAML 2027">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="Naval Applications of Machine Learning · April 12–15, 2027 · San Diego, California. Abstracts due December 4, 2026.">
+<meta property="og:image" content="{SITE_URL}assets/img/og-naml2027.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#02565E">
 <link rel="icon" href="assets/img/favicon.ico" sizes="any">
 <link rel="icon" href="assets/img/favicon.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -97,8 +105,9 @@ def main():
 </head>
 <body>
 <div class="naml">
+  <a class="skip" href="#main">Skip to content</a>
   {header(page)}
-  <main>
+  <main id="main" tabindex="-1">
 {render(body, site_link, "")}
   </main>
   {FOOTER}

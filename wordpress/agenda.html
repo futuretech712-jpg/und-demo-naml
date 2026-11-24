@@ -13,7 +13,7 @@
    Everything is scoped under .naml so the same CSS can be pasted into a WordPress/Elementor HTML widget. */
 
 .naml{--teal:#16929E;--dteal:#02565E;--deep:#013A40;--coral:#FF544B;--yellow:#FFC54B;--orange:#FFA04B;
-  --paper:#fff;--mist:#E8F4F5;--ink:#0D2A2D;--muted:#4C6669;--line:#CFE3E5;
+  --paper:#fff;--coral-ink:#C2352D;--mist:#E8F4F5;--ink:#0D2A2D;--muted:#4C6669;--line:#CFE3E5;
   font:16px/1.6 Barlow,system-ui,sans-serif;color:var(--ink);background:var(--paper);overflow-x:clip}
 .naml *{box-sizing:border-box;min-width:0}
 .naml h1,.naml h2,.naml h3{font-family:"Bebas Neue",Barlow,sans-serif;font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:.01em}
@@ -45,7 +45,7 @@
 .naml .menu{display:flex;align-items:center;gap:2px}
 .naml .menu a{text-decoration:none;font-weight:600;color:var(--dteal);padding:10px 12px;border-radius:4px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
 .naml .menu a:hover{background:var(--mist)}
-.naml .menu a[aria-current=page]{color:var(--coral);box-shadow:inset 0 -3px 0 var(--coral);border-radius:4px 4px 0 0}
+.naml .menu a[aria-current=page]{color:var(--deep);box-shadow:inset 0 -3px 0 var(--coral);border-radius:4px 4px 0 0}
 .naml .menu .btn{margin-left:10px;color:var(--deep)}
 .naml .burger{display:none;background:none;border:2px solid var(--dteal);border-radius:4px;width:48px;height:44px;cursor:pointer;color:var(--dteal);font:600 15px Barlow,sans-serif}
 @media (max-width:1240px){
@@ -117,7 +117,7 @@
 .naml .type{border-radius:8px;padding:24px;background:var(--mist);position:relative;overflow:hidden}
 .naml .mist .type{background:#fff}
 .naml .type::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--c,var(--teal))}
-.naml .type b{display:block;font:400 48px/1 "Bebas Neue",sans-serif;color:var(--c,var(--teal));margin-bottom:6px}
+.naml .type b{display:block;font:400 48px/1 "Bebas Neue",sans-serif;color:var(--dteal);margin-bottom:6px}
 .naml .type h3{font-size:26px;color:var(--dteal);margin-bottom:6px}
 .naml .type p{color:var(--muted);font-size:15px;margin:0}
 
@@ -128,7 +128,7 @@
 .naml .card div{padding:20px 22px 24px}
 .naml .card h3{font-size:30px;color:var(--dteal);margin-bottom:6px}
 .naml .card p{color:var(--muted);margin:0}
-.naml .card .go{display:inline-block;margin-top:12px;font-weight:700;color:var(--coral)}
+.naml .card .go{display:inline-block;margin-top:12px;font-weight:700;color:var(--coral-ink)}
 
 /* Venues */
 .naml .venue{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:clamp(40px,6vw,72px)}
@@ -154,8 +154,8 @@
 .naml .year:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--coral)}
 .naml .year b{font:400 72px/.9 "Bebas Neue",sans-serif;color:var(--yellow)}
 .naml .year span{font-weight:600}
-.naml .year small{display:block;color:#BFE3E6;font-size:14px;margin-top:4px}
-.naml .year.alt{background:var(--teal)}
+.naml .year small{display:block;color:#E3F2F3;font-size:14px;margin-top:4px}
+.naml .year.alt{background:#117680}
 .naml .year.all{background:var(--yellow);color:var(--deep)}
 .naml .year.all b{color:var(--deep)}
 .naml .year.all small{color:var(--dteal)}
@@ -303,6 +303,60 @@
 .naml .scope .blip b{font-weight:inherit}.naml .scope .blip em{font-style:normal}
 @media (max-width:600px){.naml .scope .blip b{display:none}.naml .scope .blip em{display:block;color:#9CC3C7}}
 
+/* ---- Review pass: a11y, mobile CTA, FAQ, access matrix, calendar, steps ---- */
+.naml .skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--yellow);color:var(--deep);font-weight:700;padding:10px 16px;border-radius:4px;text-decoration:none}
+.naml .skip:focus{top:12px}
+.naml main:focus{outline:none}
+.naml .msub{display:none;min-height:44px;padding:0 16px;box-shadow:3px 3px 0 var(--coral)}
+@media (max-width:1240px){.naml .msub{display:inline-flex;margin-left:auto}}
+.naml .top .burger{flex:none}
+
+/* timeline semantics */
+.naml .timeline li.res{border-top-color:var(--coral)}
+.naml .timeline li.open{border-top-color:var(--teal)}
+.naml .timeline li.res b{color:var(--dteal)}
+
+/* calendar buttons */
+.naml .cal{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:-16px;margin-bottom:36px}
+.naml .cal span{font-weight:600;color:var(--muted);margin-right:4px}
+.naml .cal a{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:4px;border:1.5px solid var(--dteal);color:var(--dteal);font-weight:600;font-size:14px;text-decoration:none;background:#fff}
+.naml .cal a:hover{background:var(--dteal);color:#fff}
+
+/* steps inside the submit panel */
+.naml .steps{list-style:none;counter-reset:s;margin:6px 0 22px;padding:0}
+.naml .steps li{counter-increment:s;position:relative;padding:0 0 12px 40px;margin:0}
+.naml .steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--deep);font:400 18px/28px "Bebas Neue",sans-serif;text-align:center}
+.naml .cta .steps li{color:#E6F4F5}
+
+/* FAQ */
+.naml .faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 24px;align-items:start}
+.naml .faq details{background:#fff;border:1px solid var(--line);border-radius:8px}
+.naml .faq summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-weight:700;color:var(--dteal);position:relative;min-height:44px}
+.naml .faq summary::-webkit-details-marker{display:none}
+.naml .faq summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--mist);color:var(--dteal);font:600 20px/26px Barlow,sans-serif;text-align:center}
+.naml .faq details[open] summary::after{content:"–";background:var(--yellow)}
+.naml .faq summary:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:8px}
+.naml .faq details p{margin:0;padding:0 18px 18px;color:var(--ink)}
+@media (max-width:800px){.naml .faq{grid-template-columns:minmax(0,1fr)}}
+
+/* access matrix */
+.naml .access{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.naml .access th,.naml .access td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.naml .access thead th{background:var(--dteal);color:#fff;font:400 22px/1 "Bebas Neue",sans-serif;letter-spacing:.02em}
+.naml .access tr:last-child td{border-bottom:0}
+.naml .access td:first-child{font-weight:700;color:var(--dteal)}
+.naml .yes{color:#0B6B4F;font-weight:700}
+.naml .cond{color:var(--coral-ink);font-weight:700}
+@media (max-width:600px){.naml .access thead{display:none}.naml .access tr{display:grid;padding:10px 0;border-bottom:1px solid var(--line)}.naml .access td{border:0;padding:4px 16px}.naml .access td::before{content:attr(data-l);display:block;font-size:12px;color:var(--muted);font-weight:600}}
+
+/* venue address */
+.naml .sector address{font:400 14px/1.6 var(--mono);font-style:normal;color:#D9F2F4;margin:0 0 18px;padding-left:12px;border-left:2px solid var(--yellow)}
+.naml .sector.res address{border-left-color:var(--coral)}
+.naml .note.dark{color:#9CC3C7;margin-top:24px}
+.naml .note.dark a{color:var(--yellow)}
+/* phones: key info first, radar after the hero text */
+@media (max-width:900px){.naml .hero .scope{order:1;max-width:300px;margin-top:8px}}
+
 </style>
 <div class="naml">
 <section class="phero gridbg">
@@ -312,18 +366,23 @@
       <h1>Agenda</h1>
       <p class="lead">The full NAML 2027 program will be published here after abstract review. Acceptance notifications go out by mid-February 2027.</p>
     </div>
-    <svg viewBox="0 0 320 180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <rect width="320" height="180" fill="#02565E"/>
-  <circle cx="40" cy="160" r="80" fill="#16929E" opacity=".45"/>
-  <rect x="86" y="34" width="148" height="122" rx="8" fill="#FF544B" transform="translate(6 6)"/>
-  <rect x="86" y="34" width="148" height="122" rx="8" fill="#ffffff"/>
-  <rect x="86" y="34" width="148" height="28" rx="8" fill="#FFC54B"/><rect x="86" y="50" width="148" height="12" fill="#FFC54B"/>
-  <g fill="#CFE3E5">
-    <rect x="100" y="74" width="24" height="18" rx="3"/><rect x="132" y="74" width="24" height="18" rx="3"/><rect x="164" y="74" width="24" height="18" rx="3" fill="#16929E"/><rect x="196" y="74" width="24" height="18" rx="3" fill="#16929E"/>
-    <rect x="100" y="100" width="24" height="18" rx="3"/><rect x="132" y="100" width="24" height="18" rx="3"/><rect x="164" y="100" width="24" height="18" rx="3"/><rect x="196" y="100" width="24" height="18" rx="3"/>
-    <rect x="100" y="126" width="24" height="18" rx="3" fill="#FF544B"/><rect x="132" y="126" width="24" height="18" rx="3" fill="#FF544B"/><rect x="164" y="126" width="24" height="18" rx="3"/><rect x="196" y="126" width="24" height="18" rx="3"/>
-  </g>
-</svg>
+    <div class="scope mini" aria-hidden="true"><svg class="scope-face" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="rm-disc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#05424A"/><stop offset=".7" stop-color="#022A30"/><stop offset="1" stop-color="#011417"/></radialGradient>
+          <radialGradient id="rm-vig" cx="50%" cy="50%" r="50%"><stop offset=".75" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></radialGradient>
+        </defs>
+        <circle cx="300" cy="300" r="299" fill="#011417"/>
+        <circle cx="300" cy="300" r="298" fill="none" stroke="#16929E" stroke-width="3"/>
+        <circle cx="300" cy="300" r="276" fill="url(#rm-disc)"/>
+        <circle cx="300" cy="300" r="276" fill="none" stroke="#16929E" stroke-opacity=".7" stroke-width="1.5"/>
+        <line x1="300.0" y1="18.0" x2="300.0" y2="4.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="325.3" y1="11.1" x2="325.8" y2="5.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="349.7" y1="18.3" x2="351.4" y2="8.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="375.1" y1="19.9" x2="376.6" y2="14.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="397.8" y1="31.2" x2="401.2" y2="21.9" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="422.6" y1="37.2" x2="425.1" y2="31.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="441.0" y1="55.8" x2="448.0" y2="43.7" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="466.3" y1="62.4" x2="469.8" y2="57.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="483.8" y1="80.9" x2="490.3" y2="73.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="505.1" y1="94.9" x2="509.3" y2="90.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="519.1" y1="116.2" x2="526.7" y2="109.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="537.6" y1="133.7" x2="542.5" y2="130.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="544.2" y1="159.0" x2="556.3" y2="152.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="562.8" y1="177.4" x2="568.3" y2="174.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="568.8" y1="202.2" x2="578.1" y2="198.8" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="580.1" y1="224.9" x2="585.9" y2="223.4" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="581.7" y1="250.3" x2="591.5" y2="248.6" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="588.9" y1="274.7" x2="594.9" y2="274.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="582.0" y1="300.0" x2="596.0" y2="300.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="588.9" y1="325.3" x2="594.9" y2="325.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="581.7" y1="349.7" x2="591.5" y2="351.4" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="580.1" y1="375.1" x2="585.9" y2="376.6" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="568.8" y1="397.8" x2="578.1" y2="401.2" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="562.8" y1="422.6" x2="568.3" y2="425.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="544.2" y1="441.0" x2="556.3" y2="448.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="537.6" y1="466.3" x2="542.5" y2="469.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="519.1" y1="483.8" x2="526.7" y2="490.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="505.1" y1="505.1" x2="509.3" y2="509.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="483.8" y1="519.1" x2="490.3" y2="526.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="466.3" y1="537.6" x2="469.8" y2="542.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="441.0" y1="544.2" x2="448.0" y2="556.3" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="422.6" y1="562.8" x2="425.1" y2="568.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="397.8" y1="568.8" x2="401.2" y2="578.1" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="375.1" y1="580.1" x2="376.6" y2="585.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="349.7" y1="581.7" x2="351.4" y2="591.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="325.3" y1="588.9" x2="325.8" y2="594.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="300.0" y1="582.0" x2="300.0" y2="596.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="274.7" y1="588.9" x2="274.2" y2="594.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="250.3" y1="581.7" x2="248.6" y2="591.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="224.9" y1="580.1" x2="223.4" y2="585.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="202.2" y1="568.8" x2="198.8" y2="578.1" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="177.4" y1="562.8" x2="174.9" y2="568.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="159.0" y1="544.2" x2="152.0" y2="556.3" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="133.7" y1="537.6" x2="130.2" y2="542.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="116.2" y1="519.1" x2="109.7" y2="526.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="94.9" y1="505.1" x2="90.7" y2="509.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="80.9" y1="483.8" x2="73.3" y2="490.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="62.4" y1="466.3" x2="57.5" y2="469.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="55.8" y1="441.0" x2="43.7" y2="448.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="37.2" y1="422.6" x2="31.7" y2="425.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="31.2" y1="397.8" x2="21.9" y2="401.2" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="19.9" y1="375.1" x2="14.1" y2="376.6" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="18.3" y1="349.7" x2="8.5" y2="351.4" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="11.1" y1="325.3" x2="5.1" y2="325.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="18.0" y1="300.0" x2="4.0" y2="300.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="11.1" y1="274.7" x2="5.1" y2="274.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="18.3" y1="250.3" x2="8.5" y2="248.6" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="19.9" y1="224.9" x2="14.1" y2="223.4" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="31.2" y1="202.2" x2="21.9" y2="198.8" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="37.2" y1="177.4" x2="31.7" y2="174.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="55.8" y1="159.0" x2="43.7" y2="152.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="62.4" y1="133.7" x2="57.5" y2="130.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="80.9" y1="116.2" x2="73.3" y2="109.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="94.9" y1="94.9" x2="90.7" y2="90.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="116.2" y1="80.9" x2="109.7" y2="73.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="133.7" y1="62.4" x2="130.2" y2="57.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="159.0" y1="55.8" x2="152.0" y2="43.7" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="177.4" y1="37.2" x2="174.9" y2="31.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="202.2" y1="31.2" x2="198.8" y2="21.9" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="224.9" y1="19.9" x2="223.4" y2="14.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="250.3" y1="18.3" x2="248.6" y2="8.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="274.7" y1="11.1" x2="274.2" y2="5.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/>
+        <g font-family="IBM Plex Mono,ui-monospace,monospace" font-size="11" fill="#7FA9AD" letter-spacing="1"></g>
+        <circle cx="300" cy="300" r="62" fill="none" stroke="#5FE0EA" stroke-opacity="0.28" stroke-width="1" /><circle cx="300" cy="300" r="124" fill="none" stroke="#5FE0EA" stroke-opacity="0.28" stroke-width="1" /><circle cx="300" cy="300" r="186" fill="none" stroke="#5FE0EA" stroke-opacity="0.28" stroke-width="1" /><circle cx="300" cy="300" r="248" fill="none" stroke="#5FE0EA" stroke-opacity="0.32" stroke-width="1" /><circle cx="300" cy="300" r="93" fill="none" stroke="#5FE0EA" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/><circle cx="300" cy="300" r="155" fill="none" stroke="#5FE0EA" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/><circle cx="300" cy="300" r="217" fill="none" stroke="#5FE0EA" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/><line x1="300.0" y1="300.0" x2="424.0" y2="85.2" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="514.8" y2="176.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="514.8" y2="424.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="424.0" y2="514.8" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="176.0" y2="514.8" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="85.2" y2="424.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="85.2" y2="176.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="176.0" y2="85.2" stroke="#5FE0EA" stroke-opacity=".08"/>
+        <line x1="52" y1="300" x2="548" y2="300" stroke="#5FE0EA" stroke-opacity=".22"/>
+        <line x1="300" y1="52" x2="300" y2="548" stroke="#5FE0EA" stroke-opacity=".22"/>
+        <circle cx="300" cy="300" r="276" fill="url(#rm-vig)"/>
+        <circle cx="300" cy="300" r="5" fill="#FFC54B"/><circle cx="300" cy="300" r="10" fill="none" stroke="#FFC54B" stroke-opacity=".5"/>
+      </svg><div class="sweep"></div><span class="blip" style="top:34%;left:38%"><i></i></span><span class="blip" style="top:58%;left:64%;--pd:1.4s"><i></i></span><span class="blip c" style="top:70%;left:36%;--pd:2.6s"><i></i></span></div>
   </div>
 </section>
 <div class="stripe"></div>
@@ -332,11 +391,19 @@
   <div class="wrap">
     <div class="head"><h2>Workshop at a glance</h2></div>
     <ol class="timeline">
-      <li><b>Day 1 · Apr 12</b><span>Hyatt Regency La Jolla · open to all participants</span></li>
-      <li><b>Day 2 · Apr 13</b><span>Hyatt Regency La Jolla · open to all participants</span></li>
-      <li class="now"><b>Day 3 · Apr 14</b><span>NIWC Pacific · appropriately cleared attendees only</span></li>
-      <li><b>Day 4 · Apr 15</b><span>NIWC Pacific · appropriately cleared attendees only</span></li>
+      <li class="open"><b>Day 1 · Apr 12</b><span>Hyatt Regency La Jolla · open to all participants</span></li>
+      <li class="open"><b>Day 2 · Apr 13</b><span>Hyatt Regency La Jolla · open to all participants</span></li>
+      <li class="res"><b>Day 3 · Apr 14</b><span>NIWC Pacific · appropriately cleared attendees only</span></li>
+      <li class="res"><b>Day 4 · Apr 15</b><span>NIWC Pacific · appropriately cleared attendees only</span></li>
     </ol>
+    <div class="cal">
+      <span>Add to calendar:</span>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=NAML%202027%20%E2%80%93%20abstract%20deadline&amp;dates=20261204/20261205&amp;details=Submit%20your%20abstract%3A%20https%3A%2F%2Fgo.mil%2Fnaml2027sub" target="_blank" rel="noopener">Abstract deadline · Google</a>
+      <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/cal/naml2027-abstract-deadline.ics">Abstract deadline · .ics</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=NAML%202027%20%E2%80%93%20Naval%20Applications%20of%20Machine%20Learning&amp;dates=20270412/20270416&amp;location=San%20Diego%2C%20California&amp;details=https%3A%2F%2Fgo.mil%2Fnaml" target="_blank" rel="noopener">Workshop · Google</a>
+      <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/cal/naml2027-workshop.ics">Workshop · .ics</a>
+    </div>
+    <p class="note" style="margin-top:-20px">Who can attend which days, and how to get there: <a href="/venues/">Venues and access</a>.</p>
   </div>
 </section>
 
@@ -362,28 +429,29 @@
 
 </div>
 <script>
-/* NAML 2027 – shared behaviour (menu, countdown, sonar network). Safe to include on every page. */
+/* NAML 2027 – shared behaviour (mobile menu, countdown). Safe to include on every page and in WordPress blocks. */
 {
-  // Mobile menu
+  // Mobile menu: toggle, close on Escape, on link click and on outside click
   const burger = document.querySelector('.naml .burger');
   const menu = document.getElementById('naml-menu');
   if (burger && menu) {
-    burger.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
+    const setOpen = (open) => {
+      menu.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', String(open));
+      burger.textContent = open ? 'Close' : 'Menu';
+    };
+    burger.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) { setOpen(false); burger.focus(); }
+    });
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) setOpen(false);
     });
   }
 
-  // Sensor network inside every sonar plot (<g class="naml-net">, 600x600 viewBox)
-  const pts = [[300,300],[380,240],[430,330],[250,200],[190,320],[330,420],[460,180],[150,220],[240,460],[420,450],[520,300],[110,360],[350,110],[200,110]];
-  const links = [[0,1],[0,3],[0,4],[0,5],[1,2],[1,6],[1,12],[2,10],[2,9],[3,13],[3,7],[4,11],[4,8],[5,8],[5,9],[6,10],[7,11],[12,13],[3,12]];
-  for (const g of document.querySelectorAll('.naml-net')) {
-    g.innerHTML =
-      links.map(([a,b]) => `<line x1="${pts[a][0]}" y1="${pts[a][1]}" x2="${pts[b][0]}" y2="${pts[b][1]}" stroke="#8FD3D9" stroke-opacity=".55" stroke-width="2"/>`).join('') +
-      pts.map(([x,y],i) => `<circle cx="${x+3}" cy="${y+3}" r="${i?8:13}" fill="#FF544B"/><circle cx="${x}" cy="${y}" r="${i?8:13}" fill="${i?'#FFC54B':'#FFA04B'}"/>`).join('');
-  }
-
-  // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time)
+  // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time).
+  // The visible cells are aria-hidden; screen readers get the static deadline text.
   const box = document.getElementById('naml-count');
   if (box) {
     const end = new Date('2026-12-04T23:59:59-08:00').getTime();
@@ -395,7 +463,7 @@
         clearInterval(timer);
         return;
       }
-      const v = { d: Math.floor(t/864e5), h: Math.floor(t/36e5)%24, m: Math.floor(t/6e4)%60, s: Math.floor(t/1e3)%60 };
+      const v = { d: Math.floor(t / 864e5), h: Math.floor(t / 36e5) % 24, m: Math.floor(t / 6e4) % 60, s: Math.floor(t / 1e3) % 60 };
       for (const k in v) {
         const el = box.querySelector(`[data-u="${k}"]`);
         if (el) el.textContent = String(v[k]).padStart(2, '0');

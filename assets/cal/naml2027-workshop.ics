@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NAML 2027//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:workshop@naml2027.org
+DTSTAMP:20261124T120814Z
+DTSTART;VALUE=DATE:20270412
+DTEND;VALUE=DATE:20270416
+SUMMARY:NAML 2027 – Naval Applications of Machine Learning
+DESCRIPTION:Days 1–2 at Hyatt Regency La Jolla (open to all participants)\, days 3–4 at NIWC Pacific (appropriately cleared attendees only). https://go.mil/naml
+LOCATION:San Diego\, California
+URL:https://go.mil/naml
+END:VEVENT
+END:VCALENDAR
