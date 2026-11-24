@@ -40,7 +40,7 @@ Appearance → **Editor** → **Patterns** → **Template parts**:
 - **Footer:** isto, sa sadržajem `wordpress/_footer.html`.
 
 ## 5. Ikona stranice (favicon)
-**Settings → General → Site icon**: uploadaj `assets/img/site-icon-512.png` (radar s NAML logom).
+**Settings → General → Site icon**: uploadaj `assets/img/site-icon-512.png` (stisnuti NAML logo).
 
 ## 6. Slike i datoteke
 U blokovima se slike, OG slika i `.ics` datoteke učitavaju s GitHub Pagesa (`futuretech712-jpg.github.io/und-demo-naml`).

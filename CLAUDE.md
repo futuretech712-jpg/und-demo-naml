@@ -12,7 +12,7 @@ Ono što ide u WordPress su datoteke u `wordpress/` (index, call-for-participati
 - Upute za postavljanje su u `WORDPRESS-SETUP.md`: nova stranica, prijenos domene, slugovi, header i footer, site icon.
 - Header i footer za temu: `wordpress/_header.html` i `wordpress/_footer.html` (generira build). Mobilni izbornik je `<details>`, bez JS-a.
 - Loading ekran (logo u radaru) je samo na naslovnici, čisti CSS, oko 1 s.
-- Ikona stranice: `assets/img/site-icon-512.png`, iz koje su izvedeni favicon.ico, favicon.png i apple-touch-icon.png.
+- Favicon i ikona stranice: stisnuti NAML logo u boji (`favicon.ico`, `favicon.png`, `apple-touch-icon.png`, za WordPress `site-icon-512.png`). Ne radar.
 - Blokovi trebaju Business plan (style, script, iframe). Na Premiumu bi trebala posebna verzija bez skripti.
 
 ## Kako se radi izmjena
