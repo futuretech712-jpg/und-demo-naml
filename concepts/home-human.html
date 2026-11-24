@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAML 2027 – human concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* VOICE: a workshop site run by people: plain sentences, few decorations, every decision deliberate.
+   IDEA: the official NAML palette and logo do the branding; layout stays calm like a good conference site.
+   PICTURE: the logo and one flat radar (brand element), no glows, no stat tiles, no identical cards.
+   COLOUR and TYPE: dark teal #02565E field (brand, not near-black), yellow only for the one action and "2027"; Bebas Neue headings, Barlow text, no monospace.
+   LAYOUT: hero, one about paragraph, a dates table, the call as prose, two venues in text, FAQ, footer. */
+:root{color-scheme:light;--teal:#16929E;--dteal:#02565E;--deep:#013A40;--coral:#FF544B;--coral-ink:#C2352D;--yellow:#FFC54B;--mist:#EEF5F6;--ink:#14292B;--muted:#4C6669;--line:#D6E4E6}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;color:var(--ink);background:#fff;font:17px/1.65 Barlow,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--dteal);text-underline-offset:3px}
+a:hover{color:var(--coral-ink)}
+a:focus-visible,summary:focus-visible{outline:3px solid #FFA04B;outline-offset:3px}
+h1,h2,h3{font-family:"Bebas Neue",Barlow,sans-serif;font-weight:400;line-height:1;margin:0;letter-spacing:.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(5vw,18px)}
+.note{background:#FFF4D6;color:#5A4300;font-size:14px;padding:10px max(5vw,18px);text-align:center}
+
+header.top{border-bottom:1px solid var(--line);background:#fff}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:12px;padding-bottom:12px}
+header.top img{width:120px;height:auto;display:block}
+header.top nav{display:flex;flex-wrap:nowrap;gap:18px;font-weight:600;font-size:15px;white-space:nowrap}
+header.top nav a{text-decoration:none;color:var(--deep);padding:8px 0}
+header.top nav a[aria-current]{border-bottom:3px solid var(--coral)}
+
+.btn{display:inline-block;white-space:nowrap;background:var(--yellow);color:var(--deep);font-weight:700;text-decoration:none;padding:13px 22px;border-radius:3px;box-shadow:4px 4px 0 var(--coral)}
+.btn:hover{background:#FFD36F;color:var(--deep)}
+
+.hero{background:var(--dteal);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-top:64px;padding-bottom:64px}
+.hero .logo{width:min(440px,100%);height:auto;display:block}
+.hero .year{display:block;font:400 clamp(84px,10vw,128px)/.8 "Bebas Neue",sans-serif;color:var(--yellow);text-shadow:6px 6px 0 var(--coral);margin:24px 0 18px}
+.hero p{margin:0 0 6px;font-size:20px;color:#E4F2F3}
+.hero p strong{color:#fff}
+.hero .act{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:28px}
+.hero .act a:not(.btn){color:#fff;font-weight:600}
+.radar{position:relative;width:100%;max-width:400px;aspect-ratio:1;justify-self:center}
+.radar svg{position:absolute;inset:0;width:100%;height:100%}
+.radar .sweep{position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 290deg,rgba(255,197,75,.35) 359deg,transparent 360deg);animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.radar .sweep{animation:none}}
+
+section{padding:72px 0}
+section+section{border-top:1px solid var(--line)}
+h2{font-size:44px;color:var(--deep);margin-bottom:18px}
+.lede{font-size:21px;line-height:1.6;max-width:760px;margin:0}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+table.dates{width:100%;border-collapse:collapse}
+.dates th,.dates td{text-align:left;padding:12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.dates th{font-weight:400;color:var(--muted);width:46%;padding-right:16px}
+.dates td{font-weight:600;color:var(--deep)}
+.dates tr.due td{color:var(--coral-ink)}
+.small{font-size:15px;color:var(--muted)}
+
+.call p{margin:0 0 16px;max-width:680px}
+.call ul{margin:0 0 22px;padding-left:20px;max-width:680px}
+.call li{margin-bottom:6px}
+.call .warn{border-left:4px solid var(--coral);padding:2px 0 2px 14px;font-weight:600}
+
+.venue h3{font-size:32px;color:var(--deep);margin-bottom:8px}
+.venue p{margin:0 0 10px}
+.venue address{font-style:normal;color:var(--muted);margin-bottom:10px}
+
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:16px 0;font-weight:600;color:var(--deep)}
+.faq details p{margin:0 0 18px;max-width:720px}
+
+footer{background:var(--deep);color:#CFE6E8;padding:48px 0 56px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px}
+footer a{color:#fff}
+footer img{width:150px;height:auto;display:block;margin-bottom:12px}
+
+@media (max-width:1100px){header.top nav{display:none}}
+@media (max-width:860px){
+  .hero .wrap,.cols{grid-template-columns:minmax(0,1fr)}
+  .radar{max-width:280px}
+}
+</style>
+</head>
+<body>
+<p class="note">Koncept: ista stranica bez tipičnih znakova AI izrade (vidi popis u chatu). Sadržaj je službeni.</p>
+
+<header class="top">
+  <div class="wrap">
+    <img src="../assets/img/naml27-logo-color.webp" alt="NAML – Naval Applications of Machine Learning" width="807" height="425">
+    <nav aria-label="Main"><a href="#" aria-current="page">Home</a><a href="#call">Call for participation</a><a href="#">Agenda</a><a href="#venues">Venues</a><a href="#">Organizers</a><a href="#">Sponsors</a><a href="#">Past workshops</a></nav>
+    <a class="btn" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit an abstract</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1><img class="logo" src="../assets/img/naml27-logo-white.webp" alt="NAML – Naval Applications of Machine Learning" width="807" height="425"><span class="year">2027</span></h1>
+      <p><strong>April 12–15, 2027, San Diego, California</strong></p>
+      <p>The 11th annual workshop. Abstracts are due December 4, 2026.</p>
+      <div class="act">
+        <a class="btn" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit an abstract</a>
+        <a href="#call">Read the call for participation</a>
+      </div>
+    </div>
+    <div class="radar" aria-hidden="true"><svg class="face" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="rh-disc" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#05424A"/><stop offset=".7" stop-color="#022A30"/><stop offset="1" stop-color="#011417"/></radialGradient>
+          <radialGradient id="rh-vig" cx="50%" cy="50%" r="50%"><stop offset=".75" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></radialGradient>
+        </defs>
+        <circle cx="300" cy="300" r="299" fill="#011417"/>
+        <circle cx="300" cy="300" r="298" fill="none" stroke="#16929E" stroke-width="3"/>
+        <circle cx="300" cy="300" r="276" fill="url(#rh-disc)"/>
+        <circle cx="300" cy="300" r="276" fill="none" stroke="#16929E" stroke-opacity=".7" stroke-width="1.5"/>
+        <line x1="300.0" y1="18.0" x2="300.0" y2="4.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="325.3" y1="11.1" x2="325.8" y2="5.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="349.7" y1="18.3" x2="351.4" y2="8.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="375.1" y1="19.9" x2="376.6" y2="14.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="397.8" y1="31.2" x2="401.2" y2="21.9" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="422.6" y1="37.2" x2="425.1" y2="31.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="441.0" y1="55.8" x2="448.0" y2="43.7" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="466.3" y1="62.4" x2="469.8" y2="57.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="483.8" y1="80.9" x2="490.3" y2="73.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="505.1" y1="94.9" x2="509.3" y2="90.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="519.1" y1="116.2" x2="526.7" y2="109.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="537.6" y1="133.7" x2="542.5" y2="130.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="544.2" y1="159.0" x2="556.3" y2="152.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="562.8" y1="177.4" x2="568.3" y2="174.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="568.8" y1="202.2" x2="578.1" y2="198.8" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="580.1" y1="224.9" x2="585.9" y2="223.4" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="581.7" y1="250.3" x2="591.5" y2="248.6" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="588.9" y1="274.7" x2="594.9" y2="274.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="582.0" y1="300.0" x2="596.0" y2="300.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="588.9" y1="325.3" x2="594.9" y2="325.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="581.7" y1="349.7" x2="591.5" y2="351.4" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="580.1" y1="375.1" x2="585.9" y2="376.6" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="568.8" y1="397.8" x2="578.1" y2="401.2" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="562.8" y1="422.6" x2="568.3" y2="425.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="544.2" y1="441.0" x2="556.3" y2="448.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="537.6" y1="466.3" x2="542.5" y2="469.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="519.1" y1="483.8" x2="526.7" y2="490.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="505.1" y1="505.1" x2="509.3" y2="509.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="483.8" y1="519.1" x2="490.3" y2="526.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="466.3" y1="537.6" x2="469.8" y2="542.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="441.0" y1="544.2" x2="448.0" y2="556.3" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="422.6" y1="562.8" x2="425.1" y2="568.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="397.8" y1="568.8" x2="401.2" y2="578.1" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="375.1" y1="580.1" x2="376.6" y2="585.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="349.7" y1="581.7" x2="351.4" y2="591.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="325.3" y1="588.9" x2="325.8" y2="594.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="300.0" y1="582.0" x2="300.0" y2="596.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="274.7" y1="588.9" x2="274.2" y2="594.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="250.3" y1="581.7" x2="248.6" y2="591.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="224.9" y1="580.1" x2="223.4" y2="585.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="202.2" y1="568.8" x2="198.8" y2="578.1" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="177.4" y1="562.8" x2="174.9" y2="568.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="159.0" y1="544.2" x2="152.0" y2="556.3" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="133.7" y1="537.6" x2="130.2" y2="542.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="116.2" y1="519.1" x2="109.7" y2="526.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="94.9" y1="505.1" x2="90.7" y2="509.3" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="80.9" y1="483.8" x2="73.3" y2="490.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="62.4" y1="466.3" x2="57.5" y2="469.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="55.8" y1="441.0" x2="43.7" y2="448.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="37.2" y1="422.6" x2="31.7" y2="425.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="31.2" y1="397.8" x2="21.9" y2="401.2" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="19.9" y1="375.1" x2="14.1" y2="376.6" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="18.3" y1="349.7" x2="8.5" y2="351.4" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="11.1" y1="325.3" x2="5.1" y2="325.8" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="18.0" y1="300.0" x2="4.0" y2="300.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="11.1" y1="274.7" x2="5.1" y2="274.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="18.3" y1="250.3" x2="8.5" y2="248.6" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="19.9" y1="224.9" x2="14.1" y2="223.4" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="31.2" y1="202.2" x2="21.9" y2="198.8" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="37.2" y1="177.4" x2="31.7" y2="174.9" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="55.8" y1="159.0" x2="43.7" y2="152.0" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="62.4" y1="133.7" x2="57.5" y2="130.2" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="80.9" y1="116.2" x2="73.3" y2="109.7" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="94.9" y1="94.9" x2="90.7" y2="90.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="116.2" y1="80.9" x2="109.7" y2="73.3" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="133.7" y1="62.4" x2="130.2" y2="57.5" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="159.0" y1="55.8" x2="152.0" y2="43.7" stroke="#5FE0EA" stroke-opacity=".9" stroke-width="1.6"/><line x1="177.4" y1="37.2" x2="174.9" y2="31.7" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="202.2" y1="31.2" x2="198.8" y2="21.9" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="224.9" y1="19.9" x2="223.4" y2="14.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/><line x1="250.3" y1="18.3" x2="248.6" y2="8.5" stroke="#5FE0EA" stroke-opacity=".55" stroke-width="1"/><line x1="274.7" y1="11.1" x2="274.2" y2="5.1" stroke="#5FE0EA" stroke-opacity=".3" stroke-width="1"/>
+        <g font-family="IBM Plex Mono,ui-monospace,monospace" font-size="11" fill="#7FA9AD" letter-spacing="1"><text x="300.0" y="32.0" text-anchor="middle" dominant-baseline="central">000</text><text x="434.0" y="67.9" text-anchor="middle" dominant-baseline="central">030</text><text x="532.1" y="166.0" text-anchor="middle" dominant-baseline="central">060</text><text x="568.0" y="300.0" text-anchor="middle" dominant-baseline="central">090</text><text x="532.1" y="434.0" text-anchor="middle" dominant-baseline="central">120</text><text x="434.0" y="532.1" text-anchor="middle" dominant-baseline="central">150</text><text x="300.0" y="568.0" text-anchor="middle" dominant-baseline="central">180</text><text x="166.0" y="532.1" text-anchor="middle" dominant-baseline="central">210</text><text x="67.9" y="434.0" text-anchor="middle" dominant-baseline="central">240</text><text x="32.0" y="300.0" text-anchor="middle" dominant-baseline="central">270</text><text x="67.9" y="166.0" text-anchor="middle" dominant-baseline="central">300</text><text x="166.0" y="67.9" text-anchor="middle" dominant-baseline="central">330</text></g>
+        <circle cx="300" cy="300" r="62" fill="none" stroke="#5FE0EA" stroke-opacity="0.28" stroke-width="1" /><circle cx="300" cy="300" r="124" fill="none" stroke="#5FE0EA" stroke-opacity="0.28" stroke-width="1" /><circle cx="300" cy="300" r="186" fill="none" stroke="#5FE0EA" stroke-opacity="0.28" stroke-width="1" /><circle cx="300" cy="300" r="248" fill="none" stroke="#5FE0EA" stroke-opacity="0.32" stroke-width="1" /><circle cx="300" cy="300" r="93" fill="none" stroke="#5FE0EA" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/><circle cx="300" cy="300" r="155" fill="none" stroke="#5FE0EA" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/><circle cx="300" cy="300" r="217" fill="none" stroke="#5FE0EA" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="2 6"/><line x1="300.0" y1="300.0" x2="424.0" y2="85.2" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="514.8" y2="176.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="514.8" y2="424.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="424.0" y2="514.8" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="176.0" y2="514.8" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="85.2" y2="424.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="85.2" y2="176.0" stroke="#5FE0EA" stroke-opacity=".08"/><line x1="300.0" y1="300.0" x2="176.0" y2="85.2" stroke="#5FE0EA" stroke-opacity=".08"/>
+        <line x1="52" y1="300" x2="548" y2="300" stroke="#5FE0EA" stroke-opacity=".22"/>
+        <line x1="300" y1="52" x2="300" y2="548" stroke="#5FE0EA" stroke-opacity=".22"/>
+        <circle cx="300" cy="300" r="276" fill="url(#rh-vig)"/>
+        <circle cx="300" cy="300" r="5" fill="#FFC54B"/><circle cx="300" cy="300" r="10" fill="none" stroke="#FFC54B" stroke-opacity=".5"/>
+      </svg><div class="sweep"></div></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>About the workshop</h2>
+    <p class="lede">NAML is a forum for interdisciplinary experts from government, industry, and academia to discuss ongoing work on the theory and applications of machine learning to address some of the most challenging problems faced by our Naval forces and their partners.</p>
+  </div>
+</section>
+
+<section id="call">
+  <div class="wrap cols">
+    <div class="call">
+      <h2>Call for participation</h2>
+      <p>Submit a short abstract of 2,000 characters or less for a short talk (20 minutes with Q&amp;A), a lightning talk (5 minutes), a poster, or another format such as a panel or special session. Presentation formats are subject to change.</p>
+      <p>Abstracts must be unclassified and may contain up to Controlled Unclassified Information. They are not shared outside the government review team. Abstracts that read like a sales pitch will not be considered; companies can take part through sponsorship.</p>
+      <p class="warn">Do not submit classified information into the form.</p>
+      <p><a class="btn" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit an abstract</a></p>
+    </div>
+    <div>
+      <h2>Important dates</h2>
+      <table class="dates">
+        <tr class="due"><th>Abstract submission deadline</th><td>December 4, 2026</td></tr>
+        <tr><th>Author notification</th><td>Mid-February 2027</td></tr>
+        <tr><th>Registration</th><td>Opening soon</td></tr>
+        <tr><th>Workshop</th><td>April 12–15, 2027</td></tr>
+      </table>
+      <p class="small">Submitting is free. Registration has a fee (to be announced), waived for government civilian employees and military personnel.</p>
+    </div>
+  </div>
+</section>
+
+<section id="venues">
+  <div class="wrap">
+    <h2>Venues</h2>
+    <div class="cols">
+      <div class="venue">
+        <h3>Days 1 and 2: Hyatt Regency La Jolla</h3>
+        <address>3777 La Jolla Village Drive, San Diego, CA 92122</address>
+        <p>Open to all participants.</p>
+      </div>
+      <div class="venue">
+        <h3>Days 3 and 4: NIWC Pacific</h3>
+        <address>53560 Hull Street, San Diego, CA 92152</address>
+        <p>Only for appropriately cleared attendees with a CAC or similar government ID, or who can obtain a DBIDS credential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <details><summary>Can my abstract contain CUI?</summary><p>Yes, up to Controlled Unclassified Information. Never submit classified information.</p></details>
+    <details><summary>I work for a company. Can I present?</summary><p>Yes, as long as the abstract is not a sales pitch or a promotion of a product or service. For company visibility, contact RaChelle Curato (racurato@deloitte.com) about sponsorship.</p></details>
+    <details><summary>When will I hear back?</summary><p>Authors will be notified by mid-February 2027.</p></details>
+    <details><summary>Who do I ask about registration?</summary><p>Write to naml2027@underline.io. Other questions go to naml@us.navy.mil.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><img src="../assets/img/naml27-logo-white.webp" alt="NAML" width="807" height="425">April 12–15, 2027, San Diego, California</div>
+    <div>Organized by AFCEA San Diego and NIWC Pacific<br><a href="mailto:naml@us.navy.mil">naml@us.navy.mil</a></div>
+  </div>
+</footer>
+</body>
+</html>
