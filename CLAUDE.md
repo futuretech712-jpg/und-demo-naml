@@ -8,6 +8,13 @@ Višestranični demo web za NAML 2027 (Naval Applications of Machine Learning, 1
 ## Konačni rezultat: Elementor HTML za svaku stranicu
 Ono što ide u WordPress su datoteke u `wordpress/` (index, call-for-participation, agenda, venues, organizers, sponsors, previous-workshops). Svaka je samostalna: fontovi, cijeli CSS, sadržaj i JS, bez headera i footera, jer njih daje WordPress tema. Kad korisnik traži "Elementor verziju" neke stranice, pošalji mu tu datoteku. Prije objave slike trebaju doći iz WordPress Media Libraryja (`SITE_URL` u `build.py` i URL-ovi s naml2026.org).
 
+## WordPress
+- Upute za postavljanje su u `WORDPRESS-SETUP.md`: nova stranica, prijenos domene, slugovi, header i footer, site icon.
+- Header i footer za temu: `wordpress/_header.html` i `wordpress/_footer.html` (generira build). Mobilni izbornik je `<details>`, bez JS-a.
+- Loading ekran (logo u radaru) je samo na naslovnici, čisti CSS, oko 1 s.
+- Ikona stranice: `assets/img/site-icon-512.png`, iz koje su izvedeni favicon.ico, favicon.png i apple-touch-icon.png.
+- Blokovi trebaju Business plan (style, script, iframe). Na Premiumu bi trebala posebna verzija bez skripti.
+
 ## Kako se radi izmjena
 1. Uređuj samo `src/pages/*.html`, `src/svg/*.svg`, `assets/css/naml.css`, `assets/js/naml.js` ili `build.py` (izbornik i footer su u `build.py`).
 2. Pokreni `python3 build.py`, koji generira stranice u rootu i `wordpress/*.html`. Generirane datoteke ne uređuj ručno.

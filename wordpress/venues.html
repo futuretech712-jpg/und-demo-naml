@@ -38,22 +38,38 @@
 .naml .btn.line:hover{background:var(--mist)}
 .naml .actions{display:flex;flex-wrap:wrap;gap:14px}
 
-/* Header (demo site only – WordPress uses its own header) */
-.naml .top{background:#fff;border-bottom:4px solid var(--yellow);padding:8px max(5vw,16px);position:sticky;top:0;z-index:20}
-.naml .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+/* Header – desktop nav + JS-free mobile menu (<details>) */
+.naml .top{background:rgba(255,255,255,.97);backdrop-filter:saturate(1.4) blur(6px);border-bottom:4px solid var(--yellow);padding:8px max(5vw,16px);position:sticky;top:0;z-index:20;box-shadow:0 6px 18px rgba(1,58,64,.08)}
+.naml .top .wrap{display:flex;align-items:center;gap:20px;position:relative}
+.naml .brand{flex:none}
 .naml .brand img{width:132px;height:auto;display:block}
-.naml .menu{display:flex;align-items:center;gap:2px}
-.naml .menu a{text-decoration:none;font-weight:600;color:var(--dteal);padding:10px 12px;border-radius:4px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
-.naml .menu a:hover{background:var(--mist)}
-.naml .menu a[aria-current=page]{color:var(--deep);box-shadow:inset 0 -3px 0 var(--coral);border-radius:4px 4px 0 0}
-.naml .menu .btn{margin-left:10px;color:var(--deep)}
-.naml .burger{display:none;background:none;border:2px solid var(--dteal);border-radius:4px;width:48px;height:44px;cursor:pointer;color:var(--dteal);font:600 15px Barlow,sans-serif}
+.naml .menu{display:flex;align-items:center;gap:2px;margin-left:auto}
+.naml .menu a{position:relative;text-decoration:none;font-weight:600;color:var(--dteal);padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap;border-radius:4px}
+.naml .menu a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:3px;border-radius:2px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.naml .menu a:hover::after,.naml .menu a[aria-current=page]::after{transform:scaleX(1)}
+.naml .menu a[aria-current=page]{color:var(--deep)}
+.naml .hsub{flex:none}
+.naml .mnav{display:none;flex:none}
+.naml .mnav summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 14px;border:2px solid var(--dteal);border-radius:4px;color:var(--dteal);font-weight:700}
+.naml .mnav summary::-webkit-details-marker{display:none}
+.naml .mnav summary:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.naml .bars{display:grid;gap:4px;width:18px}
+.naml .bars i{display:block;height:2px;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
+.naml .mnav[open] .bars i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.naml .mnav[open] .bars i:nth-child(2){opacity:0}
+.naml .mnav[open] .bars i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.naml .mnav nav{position:absolute;left:calc(-1 * max(5vw,16px));right:calc(-1 * max(5vw,16px));top:calc(100% + 12px);background:#fff;display:flex;flex-direction:column;padding:8px max(5vw,16px) 18px;border-bottom:4px solid var(--yellow);box-shadow:0 18px 30px rgba(1,58,64,.18)}
+.naml .mnav nav a{text-decoration:none;font-weight:600;color:var(--dteal);padding:12px 0;border-bottom:1px solid var(--line);min-height:44px}
+.naml .mnav nav a[aria-current=page]{color:var(--coral-ink)}
+.naml .mnav nav .btn{margin-top:14px;border-bottom:0;justify-content:center;color:var(--deep)}
 @media (max-width:1240px){
-  .naml .burger{display:inline-flex;align-items:center;justify-content:center}
-  .naml .menu{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;align-items:stretch;padding:8px max(5vw,16px) 18px;border-bottom:4px solid var(--yellow);box-shadow:0 12px 24px rgba(1,58,64,.15)}
-  .naml .menu.open{display:flex}
-  .naml .menu .btn{margin:8px 0 0}
+  .naml .menu{display:none}
+  .naml .mnav{display:block}
+  .naml .hsub{margin-left:auto;min-height:44px;padding:0 16px}
 }
+.naml .mnav .lbl::after{content:"Menu"}.naml .mnav[open] .lbl::after{content:"Close"}
+@media (max-width:420px){.naml .top .wrap{gap:10px}.naml .brand img{width:112px}.naml .hsub{padding:0 12px;font-size:14px}.naml .hsub span{display:none}.naml .mnav summary{padding:0 12px}}
+@media (max-width:340px){.naml .hsub{display:none}.naml .mnav{margin-left:auto}}
 
 /* Hero (home) */
 .naml .hero{background:linear-gradient(180deg,var(--dteal) 0%,var(--deep) 100%);color:#fff;position:relative;overflow:hidden}
@@ -307,9 +323,6 @@
 .naml .skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--yellow);color:var(--deep);font-weight:700;padding:10px 16px;border-radius:4px;text-decoration:none}
 .naml .skip:focus{top:12px}
 .naml main:focus{outline:none}
-.naml .msub{display:none;min-height:44px;padding:0 16px;box-shadow:3px 3px 0 var(--coral)}
-@media (max-width:1240px){.naml .msub{display:inline-flex;margin-left:auto}}
-.naml .top .burger{flex:none}
 
 /* timeline semantics */
 .naml .timeline li.res{border-top-color:var(--coral)}
@@ -365,6 +378,21 @@
 .naml .legend li.c i{background:var(--coral);box-shadow:none}
 .naml .legend b{display:block;font-weight:600;color:#fff;letter-spacing:.04em;text-transform:uppercase}
 .naml .legend li.c b{color:#FFB3AE}
+
+/* Loading screen (home only, CSS-only: shows ~1 s, then fades out) */
+.naml .boot{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 45%,rgba(22,146,158,.35),transparent 70%),
+  linear-gradient(rgba(22,146,158,.14) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(22,146,158,.14) 1px,transparent 1px) 0 0/48px 48px,#011417;
+  animation:namlboot .5s ease 1.1s forwards}
+.naml .boot-scope{position:relative;width:min(300px,70vw);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
+  background:repeating-radial-gradient(circle,transparent 0 calc(16.66% - 1px),rgba(95,224,234,.25) calc(16.66% - 1px) 16.66%),radial-gradient(circle,#05424A,#011417 72%);
+  border:2px solid var(--teal);box-shadow:0 0 0 10px rgba(22,146,158,.08),0 0 70px rgba(95,224,234,.25)}
+.naml .boot-scope .sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 270deg,rgba(255,197,75,.25) 330deg,rgba(255,197,75,.7) 359deg,transparent 360deg);animation:namlspin 1.1s linear infinite;mix-blend-mode:screen}
+.naml .boot-scope img{position:relative;width:70%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4));animation:namlbootlogo .6s ease both}
+.naml .boot-txt{margin:0;font:500 13px/1 var(--mono);letter-spacing:.12em;color:#7FA9AD;text-transform:uppercase}
+@keyframes namlboot{to{opacity:0;visibility:hidden}}
+@keyframes namlbootlogo{from{opacity:0;transform:scale(.92)}}
+@media (prefers-reduced-motion:reduce){.naml .boot{display:none}}
 
 </style>
 <div class="naml">
@@ -452,23 +480,10 @@
 <script>
 /* NAML 2027 – shared behaviour (mobile menu, countdown). Safe to include on every page and in WordPress blocks. */
 {
-  // Mobile menu: toggle, close on Escape, on link click and on outside click
-  const burger = document.querySelector('.naml .burger');
-  const menu = document.getElementById('naml-menu');
-  if (burger && menu) {
-    const setOpen = (open) => {
-      menu.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      burger.textContent = open ? 'Close' : 'Menu';
-    };
-    burger.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
-    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('open')) { setOpen(false); burger.focus(); }
-    });
-    document.addEventListener('click', (e) => {
-      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) setOpen(false);
-    });
+  // Mobile menu is a <details> element (works without JS). Close it after a link is chosen or on Escape.
+  for (const d of document.querySelectorAll('.naml .mnav')) {
+    d.addEventListener('click', (e) => { if (e.target.closest('nav a')) d.open = false; });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   }
 
   // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time).

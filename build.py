@@ -33,18 +33,26 @@ def render(body, link, base):
     body = re.sub(r"\{\{link:([\w-]+)\}\}", lambda m: link(m[1]), body)
     return body.replace("{{base}}", base)
 
-def header(active):
-    items = "\n".join(
-        f'        <a href="{site_link(p)}"{" aria-current=\"page\"" if p == active else ""}>{label}</a>' for p, label in MENU)
+def header(active, link=None, base=""):
+    """Site header. Desktop nav + a JS-free mobile menu (<details>), so it also works on WordPress plans that strip scripts."""
+    link = link or site_link
+    def items(cls):
+        return "\n".join(
+            f'          <a href="{link(p)}"{" aria-current=\"page\"" if p == active else ""}>{label}</a>' for p, label in MENU)
     return f'''<header class="top">
     <div class="wrap">
-      <a class="brand" href="index.html" aria-label="NAML 2027 home"><img src="assets/img/naml27-logo-color.webp" alt="NAML – Naval Applications of Machine Learning" width="807" height="425"></a>
-      <a class="btn pri msub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit</a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="naml-menu">Menu</button>
-      <nav class="menu" id="naml-menu" aria-label="Main">
-{items}
-        <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+      <a class="brand" href="{link("index")}" aria-label="NAML 2027 home"><img src="{base}assets/img/naml27-logo-color.webp" alt="NAML – Naval Applications of Machine Learning" width="807" height="425"></a>
+      <nav class="menu" aria-label="Main">
+{items("d")}
       </nav>
+      <a class="btn pri hsub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+      <details class="mnav">
+        <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="lbl"></span></summary>
+        <nav aria-label="Main (mobile)">
+{items("m")}
+          <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+        </nav>
+      </details>
     </div>
   </header>'''
 
@@ -70,6 +78,10 @@ FOOTER = '''<footer class="band foot" id="contact">
     </div>
     <div class="wrap fine"><span>NAML 2027 · Organized by AFCEA San Diego and NIWC Pacific</span><span>Demo site</span></div>
   </footer>'''
+
+def wp_footer():
+    f = FOOTER.replace('href="index.html#faq"', 'href="/#faq"').replace('src="assets/', 'src="' + SITE_URL + 'assets/')
+    return re.sub(r'href="([\w-]+)\.html"', lambda m: f'href="{wp_link(m[1])}"', f)
 
 def main():
     css = (ROOT / "assets/css/naml.css").read_text()
@@ -134,6 +146,30 @@ def main():
 '''
         (ROOT / "wordpress" / f"{page}.html").write_text(wp)
         print("built", page)
+
+    # WordPress header block (paste into the theme's Header template part)
+    hdr = f'''<!-- NAML 2027 · HEADER block for the WordPress theme Header (Appearance → Editor → Patterns/Template parts → Header).
+     Replace the theme's navigation with one Custom HTML block containing this file. No JavaScript needed. -->
+{FONTS}
+<style>
+{css}
+</style>
+<div class="naml">
+  {header("", wp_link, SITE_URL)}
+</div>
+'''
+    (ROOT / "wordpress" / "_header.html").write_text(hdr)
+    ftr = f'''<!-- NAML 2027 · FOOTER block for the WordPress theme Footer template part. Paste after _header.html CSS is on the page (or keep the <style> below). -->
+{FONTS}
+<style>
+{css}
+</style>
+<div class="naml">
+  {wp_footer()}
+</div>
+'''
+    (ROOT / "wordpress" / "_footer.html").write_text(ftr)
+    print("built _header, _footer")
 
 if __name__ == "__main__":
     main()

@@ -1,22 +1,9 @@
 /* NAML 2027 – shared behaviour (mobile menu, countdown). Safe to include on every page and in WordPress blocks. */
 {
-  // Mobile menu: toggle, close on Escape, on link click and on outside click
-  const burger = document.querySelector('.naml .burger');
-  const menu = document.getElementById('naml-menu');
-  if (burger && menu) {
-    const setOpen = (open) => {
-      menu.classList.toggle('open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      burger.textContent = open ? 'Close' : 'Menu';
-    };
-    burger.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
-    menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && menu.classList.contains('open')) { setOpen(false); burger.focus(); }
-    });
-    document.addEventListener('click', (e) => {
-      if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) setOpen(false);
-    });
+  // Mobile menu is a <details> element (works without JS). Close it after a link is chosen or on Escape.
+  for (const d of document.querySelectorAll('.naml .mnav')) {
+    d.addEventListener('click', (e) => { if (e.target.closest('nav a')) d.open = false; });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   }
 
   // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time).
