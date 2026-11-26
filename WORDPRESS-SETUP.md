@@ -17,6 +17,8 @@ Domena je trenutno pod stranicom naml2026.org (registrirana tamo).
 3. Na novoj stranici: **Domains** → naml2027.org → **Make primary**.
 
 ## 3. Stranice (slug mora biti točno ovakav)
+Svaka datoteka u `wordpress/` sadrži cijelu stranicu: naš header s izbornikom, sadržaj i footer. Sama se širi preko cijelog ekrana, bez obzira na temu.
+
 | Stranica | Slug | Datoteka |
 |---|---|---|
 | Home | (naslovna) | `wordpress/index.html` |
@@ -28,16 +30,15 @@ Domena je trenutno pod stranicom naml2026.org (registrirana tamo).
 | Previous Workshops | `previous-workshops` | `wordpress/previous-workshops.html` |
 
 Za svaku stranicu:
-1. Pages → **Add new**, upiši naslov i provjeri slug.
-2. Dodaj jedan **Custom HTML** blok (upiši `/html`) i zalijepi cijeli sadržaj datoteke.
-3. Pod Template odaberi praznu varijantu bez naslova ("Blank" ili "No title"), da tema ne ispisuje svoj naslov iznad bloka.
+1. Pages > Add New Page, upiši naslov i provjeri slug (desno, Page > URL).
+2. Dodaj jedan Custom HTML blok (`/html`) i zalijepi cijeli sadržaj datoteke.
+3. Desno pod Template odaberi **Blank**, da se ne prikazuju header i footer teme.
+4. Publish.
 
-Home postavi kao naslovnicu: **Settings → Reading → Your homepage displays → A static page → Home**.
+Home postavi kao naslovnicu: Settings > Reading > A static page > Homepage: Home.
 
-## 4. Izbornik (header) i footer
-Appearance → **Editor** → **Patterns** → **Template parts**:
-- **Header:** obriši sadržaj teme i dodaj jedan Custom HTML blok sa sadržajem `wordpress/_header.html`. To je izbornik s logom, Submit gumbom i mobilnim izbornikom, i radi bez JavaScripta.
-- **Footer:** isto, sa sadržajem `wordpress/_footer.html`.
+## 4. Header i footer
+Nije potrebno ništa mijenjati u temi, jer su header i footer ugrađeni u svaku stranicu. `wordpress/_header.html` i `_footer.html` služe samo ako ih poželiš staviti u template parts teme.
 
 ## 5. Ikona stranice (favicon)
 **Settings → General → Site icon**: uploadaj `assets/img/site-icon-512.png` (stisnuti NAML logo).

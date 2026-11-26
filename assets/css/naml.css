@@ -428,3 +428,4 @@
 .naml .orgl .spon{transition:transform .2s,box-shadow .2s}
 .naml .orgl:hover .spon{transform:translateY(-3px);box-shadow:0 14px 30px rgba(1,58,64,.14)}
 .naml .foot .wrap.fine{display:flex;grid-template-columns:none}
+@media (max-width:900px){.naml .logo{max-width:420px}.naml .lockup{max-width:410px}}

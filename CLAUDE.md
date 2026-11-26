@@ -10,7 +10,7 @@ Ono što ide u WordPress su datoteke u `wordpress/` (index, call-for-participati
 
 ## WordPress
 - Upute za postavljanje su u `WORDPRESS-SETUP.md`: nova stranica, prijenos domene, slugovi, header i footer, site icon.
-- Header i footer za temu: `wordpress/_header.html` i `wordpress/_footer.html` (generira build). Mobilni izbornik je `<details>`, bez JS-a.
+- Svaki WP blok sadrži naš header, sadržaj i footer, i sam se širi na 100vw (WP_FIX u build.py), pa radi u bilo kojoj temi. Na WordPressu se koristi template "Blank" (Twenty Twenty-Four). Mobilni izbornik je `<details>`, bez JS-a.
 - Loading ekran (logo u radaru, `src/parts/boot.html`, oštar SVG brojčanik kao glavni radar) je samo na naslovnici, čisti CSS, oko 1 s.
 - Favicon i ikona stranice: stisnuti NAML logo u boji (`favicon.ico`, `favicon.png`, `apple-touch-icon.png`, za WordPress `site-icon-512.png`). Ne radar.
 - Blokovi rade na svakom plaćenom planu (i Premium) kad su na stranici uključene hosting značajke (WordPress.com docs, studeni 2026). Nije potrebna posebna Premium verzija.
