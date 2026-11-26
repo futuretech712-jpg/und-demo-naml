@@ -61,7 +61,7 @@
   .naml .mnav{display:block}
   .naml .hsub{margin-left:auto;min-height:44px;padding:0 16px}
 }
-.naml .mnav .lbl::after{content:"Menu"}.naml .mnav[open] .lbl::after{content:"Close"}
+.naml .mnav .mlbl{font:700 15px/1 Barlow,sans-serif;letter-spacing:0;text-transform:none}.naml .mnav .mlbl::after{content:"Menu"}.naml .mnav[open] .mlbl::after{content:"Close"}
 @media (max-width:420px){.naml .top .wrap{gap:10px}.naml .brand img{width:112px}.naml .hsub{padding:0 12px;font-size:14px}.naml .hsub span{display:none}.naml .mnav summary{padding:0 12px}}
 @media (max-width:340px){.naml .hsub{display:none}.naml .mnav{margin-left:auto}}
 
@@ -69,7 +69,7 @@
 .naml .hero{background:linear-gradient(180deg,var(--dteal) 0%,var(--deep) 100%);color:#fff;position:relative;overflow:hidden}
 .naml .stripe{height:10px;background:linear-gradient(90deg,var(--yellow) 0 60%,var(--orange) 60% 80%,var(--coral) 80%)}
 .naml .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
-.naml .logo{display:block;width:100%;max-width:520px;height:auto;margin:0 0 4px -4px;filter:drop-shadow(0 10px 24px rgba(0,0,0,.25))}
+.naml .logo{display:block;width:100%;max-width:520px;height:auto;margin:0 0 4px -10px}
 .naml .edition{font:400 clamp(30px,3.4vw,44px)/1 "Bebas Neue",sans-serif;color:var(--yellow);margin:16px 0 6px}
 .naml .edition span{color:#fff}
 .naml .meta{display:flex;flex-wrap:wrap;gap:6px 26px;margin:10px 0 26px;font-size:18px;font-weight:600;color:#D8EEF0}
@@ -262,7 +262,7 @@
 /* Home hero title lockup + jet formation */
 .naml .hero .jets{position:absolute;inset:0;width:100%;height:100%;opacity:.06;pointer-events:none}
 .naml .hero .wrap{position:relative;z-index:1}
-.naml .lockup{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;max-width:520px;border-top:5px solid #fff;margin:16px 0 30px;padding-top:14px}
+.naml .lockup{display:flex;align-items:center;flex-wrap:wrap;gap:6px 22px;max-width:500px;border-top:5px solid #fff;margin:16px 0 30px;padding-top:14px}
 .naml .lockup .yr{font:400 clamp(72px,9vw,112px)/.82 "Bebas Neue",sans-serif;color:var(--yellow);text-shadow:5px 5px 0 var(--coral)}
 .naml .lockup .when{flex:1 1 220px;font:400 clamp(26px,2.7vw,40px)/1.02 "Bebas Neue",sans-serif;color:#fff;text-transform:uppercase;letter-spacing:.01em}
 .naml .lockup .when i{font-style:normal;color:var(--yellow)}
@@ -327,7 +327,7 @@
 /* steps inside the submit panel */
 .naml .steps{list-style:none;counter-reset:s;margin:6px 0 22px;padding:0}
 .naml .steps li{counter-increment:s;position:relative;padding:0 0 12px 40px;margin:0}
-.naml .steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--deep);font:400 18px/28px "Bebas Neue",sans-serif;text-align:center}
+.naml .steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--deep);font:700 14px/1 Barlow,sans-serif;display:flex;align-items:center;justify-content:center}
 .naml .cta .steps li{color:#E6F4F5}
 
 /* FAQ */
@@ -335,8 +335,8 @@
 .naml .faq details{background:#fff;border:1px solid var(--line);border-radius:8px}
 .naml .faq summary{cursor:pointer;list-style:none;padding:16px 48px 16px 18px;font-weight:700;color:var(--dteal);position:relative;min-height:44px}
 .naml .faq summary::-webkit-details-marker{display:none}
-.naml .faq summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--mist);color:var(--dteal);font:600 20px/26px Barlow,sans-serif;text-align:center}
-.naml .faq details[open] summary::after{content:"\2212";background:var(--yellow)}
+.naml .faq summary::after{content:"";position:absolute;right:16px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:linear-gradient(var(--dteal),var(--dteal)) center/12px 2px no-repeat,linear-gradient(var(--dteal),var(--dteal)) center/2px 12px no-repeat,var(--mist);transition:background-color .15s}
+.naml .faq details[open] summary::after{background:linear-gradient(var(--deep),var(--deep)) center/12px 2px no-repeat,var(--yellow)}
 .naml .faq summary:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:8px}
 .naml .faq details p{margin:0;padding:0 18px 18px;color:var(--ink)}
 @media (max-width:800px){.naml .faq{grid-template-columns:minmax(0,1fr)}}
@@ -389,7 +389,7 @@
 .naml .lead{margin:0;font:500 clamp(21px,2.1vw,26px)/1.5 Barlow,sans-serif;color:var(--deep);max-width:860px}
 .naml .sign{margin:28px 0 0;color:var(--muted);max-width:860px}
 .naml .sign span{display:block;font-size:14px;margin-top:4px}
-.naml table.dates{width:100%;border-collapse:collapse;margin-bottom:26px}
+.naml table.dates{width:100%;max-width:640px;border-collapse:collapse;margin-bottom:26px}
 .naml .dates th,.naml .dates td{text-align:left;padding:13px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .naml .dates th{font-weight:400;color:var(--muted);padding-right:16px}
 .naml .dates td{font-weight:700;color:var(--deep);white-space:nowrap}
@@ -420,3 +420,11 @@
 /* Fallback names/initials show only when the image failed (onerror removes the img) */
 .naml .spon:has(img)::before,.naml .lg:has(img)::before,.naml .ph:has(img)::before{content:none}
 .naml .spon img{background:transparent}
+
+/* review pass 2: consistent focus, card heights, logo tiles */
+.naml .btn:focus-visible,.naml .cal-row a:focus-visible,.naml .next a:focus-visible,.naml .year:focus-visible,.naml .orgl:focus-visible,.naml .menu a:focus-visible,.naml .mnav nav a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.naml .people{align-items:stretch}
+.naml .person{display:flex;flex-direction:column}
+.naml .orgl .spon{transition:transform .2s,box-shadow .2s}
+.naml .orgl:hover .spon{transform:translateY(-3px);box-shadow:0 14px 30px rgba(1,58,64,.14)}
+.naml .foot .wrap.fine{display:flex;grid-template-columns:none}

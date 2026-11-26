@@ -47,7 +47,7 @@ def header(active, link=None, base=""):
       </nav>
       <a class="btn pri hsub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
       <details class="mnav">
-        <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="lbl"></span></summary>
+        <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="mlbl"></span></summary>
         <nav aria-label="Main (mobile)">
 {items("m")}
           <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
@@ -76,7 +76,7 @@ FOOTER = '''<footer class="band foot" id="contact">
         </ul>
       </div>
     </div>
-    <div class="wrap fine"><span>NAML 2027. Organized by AFCEA San Diego and NIWC Pacific</span><span>Demo site</span></div>
+    <div class="wrap fine"><span>NAML 2027. Organized by AFCEA San Diego and NIWC Pacific, with Underline Science.</span></div>
   </footer>'''
 
 def wp_footer():
