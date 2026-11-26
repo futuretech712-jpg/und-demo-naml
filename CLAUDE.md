@@ -41,6 +41,7 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Bez "AI znakova" (vidi falia.co članak): nema srednjih točkica "·" kao razdjelnika, nema dugih crtica (– —), nema strelica na linkovima i gumbima. Rasponi datuma pišu se s običnom crticom (April 12-15), kao na naml2026.org. Nema kutija s brojkama ni tri jednake kartice; koristi rečenicu, tablicu (`part:dates`) ili listu (`.next`, `part:types`).
 - Tamni CIC dijelovi i monospace oznake ostaju (namjerna odluka), ali bez jakog sjaja. Hover samo na gumbima, linkovima i karticama koje su linkovi.
 - WP blokovi se generiraju bez komentara u CSS-u i JS-u.
+- Boje naslova, teksta i gumba su eksplicitno zadane ("Guard against theme typography" u CSS-u), jer WordPress teme boje h1-h6, p i a. Kod novih elemenata na tamnoj pozadini uvijek zadaj boju.
 - Nakon izmjena pokreni QA: svi linkovi i sidra, ID-ovi, alt, JS greške (vidi AUDIT.md).
 - CSS i JS imaju `?v=hash` u linkovima (cache-busting) koji dodaje build.
 
