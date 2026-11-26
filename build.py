@@ -94,7 +94,7 @@ FOOTER = '''<footer class="band foot" id="contact">
         </ul>
       </div>
     </div>
-    <div class="wrap fine"><span>NAML 2027. Organized by AFCEA San Diego and NIWC Pacific, with Underline Science.</span></div>
+    <div class="wrap fine"><span>Contact the organizers at <a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a> with any additional questions.</span><span>NAML 2027. Organized by AFCEA San Diego and NIWC Pacific, with Underline Science.</span></div>
   </footer>'''
 
 WP_FIX = """body:has(.naml-page){overflow-x:clip;margin:0}
