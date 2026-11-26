@@ -83,6 +83,8 @@ WP_FIX = """body:has(.naml-page){overflow-x:clip;margin:0}
 .naml.naml-page{width:100vw!important;max-width:100vw!important;margin:0 calc(50% - 50vw)!important;padding:0!important;position:relative;left:0}
 .wp-site-blocks:has(.naml-page),.wp-block-post-content:has(.naml-page),main:has(> .naml-page),main:has(.naml-page){padding:0!important;margin:0!important;max-width:none!important;gap:0!important}
 .wp-block-post-content:has(.naml-page) > *{margin-block-start:0!important;margin-block-end:0!important}
+body:has(.naml-page) .wp-site-blocks > header,body:has(.naml-page) .wp-site-blocks > footer,body:has(.naml-page) header.wp-block-template-part,body:has(.naml-page) footer.wp-block-template-part,body:has(.naml-page) .wp-block-post-title{display:none!important}
+body:has(.naml-page) .wp-site-blocks{padding-top:0!important;padding-bottom:0!important}
 body.admin-bar .naml-page .top{top:32px}
 @media (max-width:782px){body.admin-bar .naml-page .top{top:46px}}"""
 
