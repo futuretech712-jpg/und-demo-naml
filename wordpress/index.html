@@ -444,6 +444,14 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .map .k.drive{background:#7FD39B}.naml .map .k.walk{background:#F07F1E}
 @media (max-width:860px){.naml .access-grid{grid-template-columns:minmax(0,1fr)}.naml .map{position:static}}
 
+.naml .quote{position:relative;margin:44px 0 0;padding:34px 36px 30px 40px;max-width:900px;background:var(--dteal);color:#fff;border-radius:12px;box-shadow:8px 8px 0 var(--yellow)}
+.naml .quote::before{content:"\201C";position:absolute;top:-34px;left:22px;font:400 120px/1 "Bebas Neue",sans-serif;color:var(--coral)}
+.naml .quote blockquote{margin:0;padding:0;border:0;font:500 clamp(20px,2vw,25px)/1.5 Barlow,sans-serif;color:#fff;max-width:none}
+.naml .quote mark{background:none;color:var(--yellow);font-weight:700}
+.naml .quote figcaption{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2);font-size:15px;color:#BFE3E6}
+.naml .quote figcaption b{display:block;color:#fff;font-weight:700;font-size:16px}
+@media (max-width:600px){.naml .quote{padding:28px 22px 24px;margin-top:40px}}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
@@ -573,7 +581,10 @@ body.admin-bar .naml-page .top{top:32px}
     <p class="lbl">About NAML</p>
     <div>
       <p class="lead">NAML is a forum for interdisciplinary experts from government, industry, and academia to discuss ongoing work on the theory and applications of machine learning to address some of the most challenging problems faced by our Naval forces and their partners.</p>
-      <p class="sign">“What we do as a Navy is a human business. Don’t pass up an opportunity to come together as a team. Don’t pass up leadership opportunities, and don’t outsource them to a PowerPoint. If you have an opportunity to come together as a team, to increase belonging, do it.” <span>Admiral John M. Richardson, 31st Chief of Naval Operations</span></p>
+      <figure class="quote">
+        <blockquote>What we do as a Navy is a human business. Don’t pass up an opportunity to come together as a team. Don’t pass up leadership opportunities, and don’t outsource them to a PowerPoint. <mark>If you have an opportunity to come together as a team, to increase belonging, do it.</mark></blockquote>
+        <figcaption><b>Admiral John M. Richardson</b> 31st Chief of Naval Operations</figcaption>
+      </figure>
     </div>
   </div>
 </section>
