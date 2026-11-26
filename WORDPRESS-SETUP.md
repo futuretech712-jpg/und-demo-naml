@@ -2,10 +2,10 @@
 
 "Copy site" ne postoji jer ga može pokrenuti samo vlasnik stranice, i to samo na Business ili Commerce planu. Zato se stranica slaže iznova od HTML blokova iz mape `wordpress/`.
 
-## 0. Plan nove stranice (važno)
-Blokovi koriste `<style>`, `<link>` (fontove), `<script>` i `<iframe>` (Underline program). WordPress.com te oznake briše na Free, Personal i Premium planu, a dopušta ih na planovima s pluginovima (Business i više).
-- **Business:** sve radi kako je u demou. Preporučeno.
-- **Premium:** blokovi gube stil i skripte. Za to treba posebna verzija, bez skripti i iframeova i s CSS-om u "Additional CSS". Javi ako je potrebna.
+## 0. Plan nove stranice i hosting značajke
+Blokovi koriste `<style>`, `<link>` (fontove), `<script>` i `<iframe>` (Underline program). Prema dokumentaciji WordPress.coma (studeni 2026) pluginovi i vlastiti kod dostupni su na svim plaćenim planovima (Personal, Premium, Business, Commerce), ali tek kad se na stranici **uključe hosting značajke**. Prije toga vrijede ista ograničenja kao na besplatnim stranicama.
+- **Premium je dovoljan** (naml2026.org je na Premiumu i koristi Elementor).
+- Na novoj stranici **uključi hosting značajke** prije lijepljenja blokova. Ako se blok nakon spremanja "pokvari" ili kod nestane, hosting značajke nisu uključene.
 
 ## 1. Nova stranica
 Sites → **Add new site** → naziv "NAML 2027 – Naval Applications of Machine Learning" → odaberi plan. Za temu je dovoljna bilo koja block tema, npr. Twenty Twenty-Five.
