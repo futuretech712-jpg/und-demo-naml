@@ -9,7 +9,7 @@ Demo of the NAML 2027 (Naval Applications of Machine Learning) website in the of
 | Page | Demo file | WordPress block |
 |---|---|---|
 | Home | `index.html` | `wordpress/index.html` |
-| Call for Participation | `call-for-participation.html` | `wordpress/call-for-participation.html` |
+| Registration | `registration.html` | `wordpress/registration.html` |
 | Agenda (NAML 2027) | `agenda.html` | `wordpress/agenda.html` |
 | Venues | `venues.html` | `wordpress/venues.html` |
 | Organizers | `organizers.html` | `wordpress/organizers.html` |

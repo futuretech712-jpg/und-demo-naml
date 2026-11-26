@@ -6,7 +6,7 @@ Korisnik (Rafael, Underline Science) piše na hrvatskom i šalje izmjene koje tr
 Višestranični demo web za NAML 2027 (Naval Applications of Machine Learning, 11th Annual Workshop, April 12–15, 2027, San Diego). Kasnije se svaka stranica prebacuje u WordPress/Elementor (naml2027.org) kao jedan HTML widget. Stari web: naml2026.org.
 
 ## Konačni rezultat: Elementor HTML za svaku stranicu
-Ono što ide u WordPress su datoteke u `wordpress/` (index, call-for-participation, agenda, venues, organizers, sponsors, previous-workshops). Svaka je samostalna: fontovi, cijeli CSS, sadržaj i JS, bez headera i footera, jer njih daje WordPress tema. Kad korisnik traži "Elementor verziju" neke stranice, pošalji mu tu datoteku. Prije objave slike trebaju doći iz WordPress Media Libraryja (`SITE_URL` u `build.py` i URL-ovi s naml2026.org).
+Ono što ide u WordPress su datoteke u `wordpress/` (index, registration, agenda, venues, organizers, sponsors, previous-workshops). Svaka je samostalna: fontovi, cijeli CSS, sadržaj i JS, bez headera i footera, jer njih daje WordPress tema. Kad korisnik traži "Elementor verziju" neke stranice, pošalji mu tu datoteku. Prije objave slike trebaju doći iz WordPress Media Libraryja (`SITE_URL` u `build.py` i URL-ovi s naml2026.org).
 
 ## WordPress
 - Upute za postavljanje su u `WORDPRESS-SETUP.md`: nova stranica, prijenos domene, slugovi, header i footer, site icon.
@@ -28,7 +28,7 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Fontovi: Bebas Neue (naslovi), Barlow (tekst), IBM Plex Mono (radar, oznake sektora), s Google Fontsa.
 - Potpisni detalj: "pomaknuta sjena" kao kod broda u logu (žuta ili koraljna `box-shadow`/`text-shadow` 3–6px).
 - Logo: vektoriziran iz originala, `assets/img/naml27-logo-color.svg|.webp` (svijetla pozadina) i `naml27-logo-white.svg|.webp` (tamna); WebP je 2421 px širok.
-- Hero na naslovnici: bijeli logo, ispod naslovni blok (bijela linija, veliko žuto "2027", "APRIL 12–15 / SAN DIEGO, CA"), formacija mlažnjaka u pozadini (`src/svg/jets.svg`), gumbi, odbrojavanje do 4. 12. 2026 i radar (`src/parts/radar.html`, radar s oznakama "La Jolla · Days 1–2" i "NIWC Pacific · Days 3–4" i legendom ispod; na unutarnjim stranicama `radar-mini.html`). Bez "11th Annual Workshop" u naslovu.
+- Hero na naslovnici: bijeli logo, ispod naslovni blok (bijela linija, veliko žuto "2027", "APRIL 12–15 / SAN DIEGO, CA"), formacija mlažnjaka u pozadini (`src/svg/jets.svg`), gumbi, odbrojavanje do početka radionice (12. 4. 2027, data-end na #naml-count) i radar (`src/parts/radar.html`, radar s oznakama "La Jolla · Days 1–2" i "NIWC Pacific · Days 3–4" i legendom ispod; na unutarnjim stranicama `radar-mini.html`). Bez "11th Annual Workshop" u naslovu.
 - Logotipi sponzora i organizacija su u zaobljenim bijelim pločicama (`.spon`), a osobe u karticama (`.person`).
 - Radar (glavni na naslovnici, mali na ostalim stranicama i loading ekran) je obavezni dio identiteta. Ne micati ga i ne zamjenjivati.
 - "CIC" mrežasta pozadina (`.gridbg`) samo na tamnim dijelovima: heroji, page heroji i sekcija lokacija. Bijele sekcije ostaju bijele.
@@ -46,13 +46,13 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - CSS i JS imaju `?v=hash` u linkovima (cache-busting) koji dodaje build.
 
 ## Stranice
-Home, Call for Participation, Agenda (za NAML 2027; Underline embed je zakomentiran, čeka EVENT_ID), Venues (Hyatt Regency La Jolla dani 1–2, NIWC Pacific dani 3–4), Organizers, Sponsors (NAML 2026 sponzori kao primjer), Previous Workshops (2021–2026 + embed NAML 2026 programa: underline.io/events/508/schedule/embed).
+Home, Registration (mjesto za Paperform: PAPERFORM_ID ili PAPERFORM_URL u build.py), Agenda (za NAML 2027; Underline embed je zakomentiran, čeka EVENT_ID), Venues (Hyatt Regency La Jolla dani 1–2, NIWC Pacific dani 3–4), Organizers (Chairs: Erin Hausmann, Pedro Forero; bez AFCEA/Deloitte chairs), Sponsors (bez popisa, samo kontakt RaChelle Curato), Previous Workshops (2021–2026 + embed NAML 2026 programa: underline.io/events/508/schedule/embed).
 
 ## Kontakti na stranici
 - Organizatori: naml@us.navy.mil
-- Platforma, registracija, Underline: naml2027@underline.io
+- Registration support: naml2027@underline.io
 - Sponzorstvo: RaChelle Curato, racurato@deloitte.com
-- Abstract forma: https://go.mil/naml2027sub · info: https://go.mil/naml
+- Info: https://go.mil/naml. Faza predaje sažetaka je gotova: na stranici nema sadržaja o abstractima ni Call for Participation.
 
 ## Otvoreno
 - Vidi i `AUDIT.md` (zona roka, NIWC zgrada i pristup, potvrda tablice pristupa, .ics i slike u WP Media Library).

@@ -415,6 +415,11 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .btn.dark,.naml .btn.dark:visited,.naml .btn.sec,.naml .btn.sec:visited{color:#fff}
 .naml .phero .crumb{color:#D8EEF0}
 
+.naml .regform{background:#fff;border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,36px);min-height:220px}
+.naml .regform.soon{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;border:2px dashed #9FC4C8;background:rgba(255,255,255,.7)}
+.naml .regform h3{font-size:32px;color:var(--dteal);margin:0 0 8px}
+.naml .regform p{margin:0 0 16px;max-width:620px}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
@@ -422,25 +427,25 @@ body.admin-bar .naml-page .top{top:32px}
       <a class="brand" href="/" aria-label="NAML 2027 home"><img src="https://futuretech712-jpg.github.io/und-demo-naml/assets/img/naml27-logo-color.webp" alt="NAML, Naval Applications of Machine Learning" width="807" height="425"></a>
       <nav class="menu" aria-label="Main">
           <a href="/">Home</a>
-          <a href="/call-for-participation/">Call for Participation</a>
+          <a href="/registration/">Registration</a>
           <a href="/agenda/">Agenda</a>
           <a href="/venues/" aria-current="page">Venues</a>
           <a href="/organizers/">Organizers</a>
           <a href="/sponsors/">Sponsors</a>
           <a href="/previous-workshops/">Previous Workshops</a>
       </nav>
-      <a class="btn pri hsub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+      <a class="btn pri hsub" href="/registration/">Register</a>
       <details class="mnav">
         <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="mlbl"></span></summary>
         <nav aria-label="Main (mobile)">
           <a href="/">Home</a>
-          <a href="/call-for-participation/">Call for Participation</a>
+          <a href="/registration/">Registration</a>
           <a href="/agenda/">Agenda</a>
           <a href="/venues/" aria-current="page">Venues</a>
           <a href="/organizers/">Organizers</a>
           <a href="/sponsors/">Sponsors</a>
           <a href="/previous-workshops/">Previous Workshops</a>
-          <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+          <a class="btn pri" href="/registration/">Register</a>
         </nav>
       </details>
     </div>
@@ -519,9 +524,9 @@ body.admin-bar .naml-page .top{top:32px}
       <p style="margin:0">The fee is waived for government civilian employees and military personnel.</p>
     </div>
     <div class="panel">
-      <h3>Presenting?</h3>
-      <p>Presenting authors are responsible for obtaining the approvals needed to release their presentation materials before the workshop.</p>
-      <p style="margin:0"><a href="/call-for-participation/">Read the Call for Participation</a></p>
+      <h3>Registration</h3>
+      <p>Registration opens soon. For help with registration, email <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a>.</p>
+      <p style="margin:0"><a href="/registration/">Go to Registration</a></p>
     </div>
   </div>
 </section>
@@ -535,7 +540,7 @@ body.admin-bar .naml-page .top{top:32px}
       </div>
       <div>
         <h3>Workshop</h3>
-        <ul><li><a href="/call-for-participation/">Call for Participation</a></li><li><a href="/agenda/">Agenda</a></li><li><a href="/venues/">Venues</a></li><li><a href="/organizers/">Organizers</a></li><li><a href="/sponsors/">Sponsors</a></li><li><a href="/previous-workshops/">Previous Workshops</a></li><li><a href="/#faq">FAQ</a></li></ul>
+        <ul><li><a href="/registration/">Registration</a></li><li><a href="/agenda/">Agenda</a></li><li><a href="/venues/">Venues</a></li><li><a href="/organizers/">Organizers</a></li><li><a href="/sponsors/">Sponsors</a></li><li><a href="/previous-workshops/">Previous Workshops</a></li><li><a href="/#faq">FAQ</a></li></ul>
       </div>
       <div>
         <h3>Contact</h3>
@@ -543,7 +548,7 @@ body.admin-bar .naml-page .top{top:32px}
           <li><a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a></li>
           <li><a href="https://go.mil/naml" target="_blank" rel="noopener">go.mil/naml</a></li>
           <li>Sponsorship: <a href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">racurato@deloitte.com</a></li>
-          <li>Platform, registration and Underline support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration%20%2F%20platform">naml2027@underline.io</a></li>
+          <li>Registration support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a></li>
         </ul>
       </div>
     </div>
@@ -557,13 +562,13 @@ body.admin-bar .naml-page .top{top:32px}
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   }
   const box = document.getElementById('naml-count');
-  if (box) {
-    const end = new Date('2026-12-04T23:59:59-08:00').getTime();
+  if (box && box.dataset.end) {
+    const end = new Date(box.dataset.end).getTime();
     let timer = 0;
     const tick = () => {
       const t = Math.max(0, end - Date.now());
       if (t === 0) {
-        box.innerHTML = '<small>Abstract submission is closed. Acceptance notifications by mid-February 2027.</small>';
+        box.innerHTML = '<small>' + (box.dataset.done || '') + '</small>';
         clearInterval(timer);
         return;
       }

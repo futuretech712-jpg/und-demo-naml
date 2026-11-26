@@ -415,6 +415,11 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .btn.dark,.naml .btn.dark:visited,.naml .btn.sec,.naml .btn.sec:visited{color:#fff}
 .naml .phero .crumb{color:#D8EEF0}
 
+.naml .regform{background:#fff;border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,36px);min-height:220px}
+.naml .regform.soon{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;border:2px dashed #9FC4C8;background:rgba(255,255,255,.7)}
+.naml .regform h3{font-size:32px;color:var(--dteal);margin:0 0 8px}
+.naml .regform p{margin:0 0 16px;max-width:620px}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
@@ -422,25 +427,25 @@ body.admin-bar .naml-page .top{top:32px}
       <a class="brand" href="/" aria-label="NAML 2027 home"><img src="https://futuretech712-jpg.github.io/und-demo-naml/assets/img/naml27-logo-color.webp" alt="NAML, Naval Applications of Machine Learning" width="807" height="425"></a>
       <nav class="menu" aria-label="Main">
           <a href="/">Home</a>
-          <a href="/call-for-participation/">Call for Participation</a>
+          <a href="/registration/">Registration</a>
           <a href="/agenda/">Agenda</a>
           <a href="/venues/">Venues</a>
           <a href="/organizers/">Organizers</a>
           <a href="/sponsors/" aria-current="page">Sponsors</a>
           <a href="/previous-workshops/">Previous Workshops</a>
       </nav>
-      <a class="btn pri hsub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+      <a class="btn pri hsub" href="/registration/">Register</a>
       <details class="mnav">
         <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="mlbl"></span></summary>
         <nav aria-label="Main (mobile)">
           <a href="/">Home</a>
-          <a href="/call-for-participation/">Call for Participation</a>
+          <a href="/registration/">Registration</a>
           <a href="/agenda/">Agenda</a>
           <a href="/venues/">Venues</a>
           <a href="/organizers/">Organizers</a>
           <a href="/sponsors/" aria-current="page">Sponsors</a>
           <a href="/previous-workshops/">Previous Workshops</a>
-          <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+          <a class="btn pri" href="/registration/">Register</a>
         </nav>
       </details>
     </div>
@@ -480,35 +485,16 @@ body.admin-bar .naml-page .top{top:32px}
     <div>
       <div class="head"><h2>Become a sponsor</h2><p>For more information on sponsorship opportunities for NAML 2027, contact RaChelle Curato with AFCEA San Diego.</p></div>
       <div class="actions"><a class="btn dark" href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">Email racurato@deloitte.com</a></div>
-      <p class="note">Abstract submissions that read like a sales pitch or promote a company, product, or service are not considered for the program. Sponsorship is the route for company visibility.</p>
     </div>
     <div class="panel" style="align-self:start">
-      <h3>Sponsor tiers</h3>
-      <p style="margin:0">Diamond, Silver and Lanyard sponsorships were offered at NAML 2026. Contact AFCEA San Diego for the NAML 2027 packages.</p>
+      <h3>Sponsorship packages</h3>
+      <p>NAML 2027 sponsors will be announced here.</p>
+      <p style="margin:0">To ask about packages and benefits, contact RaChelle Curato with AFCEA San Diego at <a href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">racurato@deloitte.com</a>.</p>
     </div>
   </div>
 </section>
 
-<!-- PRIMJER: NAML 2026 sponzori (s naml2026.org/sponsors-2). Zamijeni s NAML 2027 sponzorima. -->
 <section class="band mist">
-  <div class="wrap">
-    <div class="head"><h2>Sponsors</h2><p>Sponsors of NAML 2026, shown as an example until NAML 2027 sponsors are announced.</p></div>
-    <div class="tier diamond" style="--c:#FFC54B"><div class="tl"><i></i><h3>Diamond</h3><small>Sponsor</small></div><div class="spons">
-      <div  class="spon" data-n="Booz Allen Hamilton"><img src="https://naml2026.org/wp-content/uploads/2026/05/BAH_Wordmark_Stacked_Black-1-400x400.png" alt="Booz Allen Hamilton" onerror="this.remove()"></div>
-    </div></div>
-    <div class="tier silver" style="--c:#9DB4B6"><div class="tl"><i></i><h3>Silver</h3><small>Sponsors</small></div><div class="spons">
-      <div  class="spon" data-n="Deloitte"><img src="https://naml2026.org/wp-content/uploads/2026/05/DEL_PRI_RGB-400x400.png" alt="Deloitte" onerror="this.remove()"></div>
-      <div  class="spon" data-n="Noblis"><img src="https://naml2026.org/wp-content/uploads/2026/05/Noblis_CMYK-1-400x400.png" alt="Noblis" onerror="this.remove()"></div>
-      <div  class="spon" data-n="Ignite Digital"><img src="https://naml2026.org/wp-content/uploads/2026/05/ignitedigital-logo-full-color-rgb-4-400x400.png" alt="Ignite Digital" onerror="this.remove()"></div>
-      <div  class="spon" data-n="XSite"><img src="https://naml2026.org/wp-content/uploads/2026/05/XSITE-logo-blue-1-1-400x400.png" alt="XSite" onerror="this.remove()"></div>
-    </div></div>
-    <div class="tier lanyard" style="--c:#FF544B"><div class="tl"><i></i><h3>Lanyard</h3><small>Sponsor</small></div><div class="spons">
-      <div  class="spon" data-n="Cavu"><img src="https://naml2026.org/wp-content/uploads/2026/05/cavu-jpeg-400x400.jpg" alt="Cavu" onerror="this.remove()"></div>
-    </div></div>
-  </div>
-</section>
-
-<section class="band">
   <div class="wrap">
     <div class="head"><h2>Organizers</h2><p>NAML is organized by NIWC Pacific and AFCEA San Diego, with Underline Science.</p></div>
     <a class="btn dark" href="/organizers/">Meet the organizers</a>
@@ -524,7 +510,7 @@ body.admin-bar .naml-page .top{top:32px}
       </div>
       <div>
         <h3>Workshop</h3>
-        <ul><li><a href="/call-for-participation/">Call for Participation</a></li><li><a href="/agenda/">Agenda</a></li><li><a href="/venues/">Venues</a></li><li><a href="/organizers/">Organizers</a></li><li><a href="/sponsors/">Sponsors</a></li><li><a href="/previous-workshops/">Previous Workshops</a></li><li><a href="/#faq">FAQ</a></li></ul>
+        <ul><li><a href="/registration/">Registration</a></li><li><a href="/agenda/">Agenda</a></li><li><a href="/venues/">Venues</a></li><li><a href="/organizers/">Organizers</a></li><li><a href="/sponsors/">Sponsors</a></li><li><a href="/previous-workshops/">Previous Workshops</a></li><li><a href="/#faq">FAQ</a></li></ul>
       </div>
       <div>
         <h3>Contact</h3>
@@ -532,7 +518,7 @@ body.admin-bar .naml-page .top{top:32px}
           <li><a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a></li>
           <li><a href="https://go.mil/naml" target="_blank" rel="noopener">go.mil/naml</a></li>
           <li>Sponsorship: <a href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">racurato@deloitte.com</a></li>
-          <li>Platform, registration and Underline support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration%20%2F%20platform">naml2027@underline.io</a></li>
+          <li>Registration support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a></li>
         </ul>
       </div>
     </div>
@@ -546,13 +532,13 @@ body.admin-bar .naml-page .top{top:32px}
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   }
   const box = document.getElementById('naml-count');
-  if (box) {
-    const end = new Date('2026-12-04T23:59:59-08:00').getTime();
+  if (box && box.dataset.end) {
+    const end = new Date(box.dataset.end).getTime();
     let timer = 0;
     const tick = () => {
       const t = Math.max(0, end - Date.now());
       if (t === 0) {
-        box.innerHTML = '<small>Abstract submission is closed. Acceptance notifications by mid-February 2027.</small>';
+        box.innerHTML = '<small>' + (box.dataset.done || '') + '</small>';
         clearInterval(timer);
         return;
       }

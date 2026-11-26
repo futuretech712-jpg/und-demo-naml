@@ -22,7 +22,7 @@ Svaka datoteka u `wordpress/` sadrži cijelu stranicu: naš header s izbornikom,
 | Stranica | Slug | Datoteka |
 |---|---|---|
 | Home | (naslovna) | `wordpress/index.html` |
-| Call for Participation | `call-for-participation` | `wordpress/call-for-participation.html` |
+| Registration | `registration` | `wordpress/registration.html` |
 | Agenda | `agenda` | `wordpress/agenda.html` |
 | Venues | `venues` | `wordpress/venues.html` |
 | Organizers | `organizers` | `wordpress/organizers.html` |

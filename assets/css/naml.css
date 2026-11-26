@@ -444,3 +444,9 @@
 .naml .btn.pri,.naml .btn.pri:visited{color:var(--deep)}
 .naml .btn.dark,.naml .btn.dark:visited,.naml .btn.sec,.naml .btn.sec:visited{color:#fff}
 .naml .phero .crumb{color:#D8EEF0}
+
+/* Registration form area */
+.naml .regform{background:#fff;border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,36px);min-height:220px}
+.naml .regform.soon{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;border:2px dashed #9FC4C8;background:rgba(255,255,255,.7)}
+.naml .regform h3{font-size:32px;color:var(--dteal);margin:0 0 8px}
+.naml .regform p{margin:0 0 16px;max-width:620px}

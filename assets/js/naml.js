@@ -6,16 +6,15 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   }
 
-  // Countdown to the abstract deadline (end of Dec 4, 2026, Pacific time).
-  // The visible cells are aria-hidden; screen readers get the static deadline text.
+  // Countdown to the date in data-end on #naml-count (workshop start). Cells are aria-hidden.
   const box = document.getElementById('naml-count');
-  if (box) {
-    const end = new Date('2026-12-04T23:59:59-08:00').getTime();
+  if (box && box.dataset.end) {
+    const end = new Date(box.dataset.end).getTime();
     let timer = 0;
     const tick = () => {
       const t = Math.max(0, end - Date.now());
       if (t === 0) {
-        box.innerHTML = '<small>Abstract submission is closed. Acceptance notifications by mid-February 2027.</small>';
+        box.innerHTML = '<small>' + (box.dataset.done || '') + '</small>';
         clearInterval(timer);
         return;
       }

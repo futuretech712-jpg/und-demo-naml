@@ -14,9 +14,25 @@ ROOT = pathlib.Path(__file__).parent
 SITE_URL = "https://futuretech712-jpg.github.io/und-demo-naml/"  # used for images in WordPress blocks
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">'
 
+# Registration form. Fill ONE of these when Paperform is ready, then run build.py:
+PAPERFORM_ID = ""   # e.g. "naml2027" (from paperform.co/... embed code)
+PAPERFORM_URL = ""  # e.g. "https://naml2027.paperform.co" (used for the button / fallback link)
+
+def register_embed():
+    if PAPERFORM_ID:
+        return (f'<div class="regform"><div data-paperform-id="{PAPERFORM_ID}"></div></div>'
+                '<script>(function(){var s=document.createElement("script");s.src="https://paperform.co/__embed.min.js";document.body.appendChild(s);})()</script>'
+                + (f'<p class="note">Form not loading? <a href="{PAPERFORM_URL}" target="_blank" rel="noopener">Open the registration form</a>.</p>' if PAPERFORM_URL else ''))
+    if PAPERFORM_URL:
+        return (f'<div class="regform soon"><h3>Registration is open</h3><p>Complete the NAML 2027 registration form.</p>'
+                f'<a class="btn pri" href="{PAPERFORM_URL}" target="_blank" rel="noopener">Open the registration form</a></div>')
+    return ('<div class="regform soon"><h3>Registration opens soon</h3>'
+            '<p>The registration form will appear here. Check back soon, or email '
+            '<a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a> to be notified.</p></div>')
+
 MENU = [  # (page, label)
     ("index", "Home"),
-    ("call-for-participation", "Call for Participation"),
+    ("registration", "Registration"),
     ("agenda", "Agenda"),
     ("venues", "Venues"),
     ("organizers", "Organizers"),
@@ -28,6 +44,8 @@ def site_link(p): return "index.html" if p == "index" else f"{p}.html"
 def wp_link(p): return "/" if p == "index" else f"/{p}/"
 
 def render(body, link, base):
+    body = body.replace("{{part:register}}", (ROOT / "src/parts/register.html").read_text().strip())
+    body = body.replace("{{register_embed}}", register_embed())
     body = re.sub(r"\{\{part:([\w-]+)\}\}", lambda m: (ROOT / "src/parts" / f"{m[1]}.html").read_text().strip(), body)
     body = re.sub(r"\{\{svg:([\w-]+)\}\}", lambda m: (ROOT / "src/svg" / f"{m[1]}.svg").read_text().strip(), body)
     body = re.sub(r"\{\{link:([\w-]+)\}\}", lambda m: link(m[1]), body)
@@ -45,12 +63,12 @@ def header(active, link=None, base=""):
       <nav class="menu" aria-label="Main">
 {items("d")}
       </nav>
-      <a class="btn pri hsub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+      <a class="btn pri hsub" href="{link("registration")}">Register</a>
       <details class="mnav">
         <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="mlbl"></span></summary>
         <nav aria-label="Main (mobile)">
 {items("m")}
-          <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+          <a class="btn pri" href="{link("registration")}">Register</a>
         </nav>
       </details>
     </div>
@@ -72,7 +90,7 @@ FOOTER = '''<footer class="band foot" id="contact">
           <li><a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a></li>
           <li><a href="https://go.mil/naml" target="_blank" rel="noopener">go.mil/naml</a></li>
           <li>Sponsorship: <a href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">racurato@deloitte.com</a></li>
-          <li>Platform, registration and Underline support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration%20%2F%20platform">naml2027@underline.io</a></li>
+          <li>Registration support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a></li>
         </ul>
       </div>
     </div>
@@ -116,7 +134,7 @@ def main():
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NAML 2027">
 <meta property="og:title" content="{title}">
-<meta property="og:description" content="Naval Applications of Machine Learning, April 12-15, 2027, San Diego, California. Abstracts due December 4, 2026.">
+<meta property="og:description" content="Naval Applications of Machine Learning, April 12-15, 2027, San Diego, California. Registration opens soon.">
 <meta property="og:image" content="{SITE_URL}assets/img/og-naml2027.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#02565E">

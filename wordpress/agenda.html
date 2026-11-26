@@ -415,6 +415,11 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .btn.dark,.naml .btn.dark:visited,.naml .btn.sec,.naml .btn.sec:visited{color:#fff}
 .naml .phero .crumb{color:#D8EEF0}
 
+.naml .regform{background:#fff;border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,36px);min-height:220px}
+.naml .regform.soon{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;border:2px dashed #9FC4C8;background:rgba(255,255,255,.7)}
+.naml .regform h3{font-size:32px;color:var(--dteal);margin:0 0 8px}
+.naml .regform p{margin:0 0 16px;max-width:620px}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
@@ -422,25 +427,25 @@ body.admin-bar .naml-page .top{top:32px}
       <a class="brand" href="/" aria-label="NAML 2027 home"><img src="https://futuretech712-jpg.github.io/und-demo-naml/assets/img/naml27-logo-color.webp" alt="NAML, Naval Applications of Machine Learning" width="807" height="425"></a>
       <nav class="menu" aria-label="Main">
           <a href="/">Home</a>
-          <a href="/call-for-participation/">Call for Participation</a>
+          <a href="/registration/">Registration</a>
           <a href="/agenda/" aria-current="page">Agenda</a>
           <a href="/venues/">Venues</a>
           <a href="/organizers/">Organizers</a>
           <a href="/sponsors/">Sponsors</a>
           <a href="/previous-workshops/">Previous Workshops</a>
       </nav>
-      <a class="btn pri hsub" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+      <a class="btn pri hsub" href="/registration/">Register</a>
       <details class="mnav">
         <summary aria-label="Open menu"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="mlbl"></span></summary>
         <nav aria-label="Main (mobile)">
           <a href="/">Home</a>
-          <a href="/call-for-participation/">Call for Participation</a>
+          <a href="/registration/">Registration</a>
           <a href="/agenda/" aria-current="page">Agenda</a>
           <a href="/venues/">Venues</a>
           <a href="/organizers/">Organizers</a>
           <a href="/sponsors/">Sponsors</a>
           <a href="/previous-workshops/">Previous Workshops</a>
-          <a class="btn pri" href="https://go.mil/naml2027sub" target="_blank" rel="noopener">Submit abstract</a>
+          <a class="btn pri" href="/registration/">Register</a>
         </nav>
       </details>
     </div>
@@ -451,7 +456,7 @@ body.admin-bar .naml-page .top{top:32px}
     <div>
       <p class="crumb">NAML 2027, April 12-15, 2027</p>
       <h1>Agenda</h1>
-      <p class="lead">The full NAML 2027 program will be published here after abstract review. Acceptance notifications go out by mid-February 2027.</p>
+      <p class="lead">The full NAML 2027 program will be published here.</p>
     </div>
     <div class="scope mini" aria-hidden="true"><svg class="scope-face" viewBox="0 0 600 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -486,11 +491,6 @@ body.admin-bar .naml-page .top{top:32px}
     <div class="cal" role="group" aria-label="Add to calendar">
       <p class="cal-h"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</p>
       <div class="cal-row">
-        <p class="cal-what">Abstract deadline<small>December 4, 2026</small></p>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=NAML%202027%3A%20abstract%20deadline&amp;dates=20261204/20261205&amp;details=Submit%20your%20abstract%3A%20https%3A%2F%2Fgo.mil%2Fnaml2027sub" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Google Calendar</a>
-        <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/cal/naml2027-abstract-deadline.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>Apple / Outlook</a>
-      </div>
-      <div class="cal-row">
         <p class="cal-what">Workshop<small>April 12-15, 2027</small></p>
         <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=NAML%202027%3A%20Naval%20Applications%20of%20Machine%20Learning&amp;dates=20270412/20270416&amp;location=San%20Diego%2C%20California&amp;details=https%3A%2F%2Fgo.mil%2Fnaml" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>Google Calendar</a>
         <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/cal/naml2027-workshop.ics" download><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>Apple / Outlook</a>
@@ -505,15 +505,15 @@ body.admin-bar .naml-page .top{top:32px}
   <div class="wrap">
     <div class="head"><h2>NAML 2027 program</h2><p>Sessions, talks and speakers will appear below once the program is live on Underline.</p></div>
     <div class="agenda">
-      <div class="bar"><b>NAML 2027 program</b><span>Coming after abstract review</span></div>
+      <div class="bar"><b>NAML 2027 program</b><span>Coming soon</span></div>
       <!-- Kad NAML 2027 event postoji na Underlineu, zamijeni EVENT_ID i makni komentar:
       <iframe src="https://underline.io/events/EVENT_ID/schedule/embed" title="NAML 2027 agenda on Underline" loading="lazy" allowfullscreen></iframe>
       -->
       <div class="panel" style="border-radius:0;text-align:center;padding:56px 24px">
         <h3>The program is being prepared</h3>
-        <p>Abstracts are due December 4, 2026. Accepted talks, posters and sessions will be listed here.</p>
+        <p>Talks, posters and sessions will be listed here once the program is final.</p>
         <div class="actions" style="justify-content:center">
-          <a class="btn dark" href="/call-for-participation/">Read the call</a>
+          <a class="btn dark" href="/registration/">Registration</a>
           <a class="btn line" href="/previous-workshops/">Browse past programs</a>
         </div>
       </div>
@@ -530,7 +530,7 @@ body.admin-bar .naml-page .top{top:32px}
       </div>
       <div>
         <h3>Workshop</h3>
-        <ul><li><a href="/call-for-participation/">Call for Participation</a></li><li><a href="/agenda/">Agenda</a></li><li><a href="/venues/">Venues</a></li><li><a href="/organizers/">Organizers</a></li><li><a href="/sponsors/">Sponsors</a></li><li><a href="/previous-workshops/">Previous Workshops</a></li><li><a href="/#faq">FAQ</a></li></ul>
+        <ul><li><a href="/registration/">Registration</a></li><li><a href="/agenda/">Agenda</a></li><li><a href="/venues/">Venues</a></li><li><a href="/organizers/">Organizers</a></li><li><a href="/sponsors/">Sponsors</a></li><li><a href="/previous-workshops/">Previous Workshops</a></li><li><a href="/#faq">FAQ</a></li></ul>
       </div>
       <div>
         <h3>Contact</h3>
@@ -538,7 +538,7 @@ body.admin-bar .naml-page .top{top:32px}
           <li><a href="mailto:naml@us.navy.mil?subject=NAML%202027%20question">naml@us.navy.mil</a></li>
           <li><a href="https://go.mil/naml" target="_blank" rel="noopener">go.mil/naml</a></li>
           <li>Sponsorship: <a href="mailto:racurato@deloitte.com?subject=NAML%202027%20sponsorship">racurato@deloitte.com</a></li>
-          <li>Platform, registration and Underline support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration%20%2F%20platform">naml2027@underline.io</a></li>
+          <li>Registration support: <a href="mailto:naml2027@underline.io?subject=NAML%202027%20registration">naml2027@underline.io</a></li>
         </ul>
       </div>
     </div>
@@ -552,13 +552,13 @@ body.admin-bar .naml-page .top{top:32px}
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && d.open) { d.open = false; d.querySelector('summary').focus(); } });
   }
   const box = document.getElementById('naml-count');
-  if (box) {
-    const end = new Date('2026-12-04T23:59:59-08:00').getTime();
+  if (box && box.dataset.end) {
+    const end = new Date(box.dataset.end).getTime();
     let timer = 0;
     const tick = () => {
       const t = Math.max(0, end - Date.now());
       if (t === 0) {
-        box.innerHTML = '<small>Abstract submission is closed. Acceptance notifications by mid-February 2027.</small>';
+        box.innerHTML = '<small>' + (box.dataset.done || '') + '</small>';
         clearInterval(timer);
         return;
       }
