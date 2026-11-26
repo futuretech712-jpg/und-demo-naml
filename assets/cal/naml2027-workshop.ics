@@ -8,8 +8,8 @@ DTSTAMP:20261124T120814Z
 DTSTART;VALUE=DATE:20270412
 DTEND;VALUE=DATE:20270416
 SUMMARY:NAML 2027 – Naval Applications of Machine Learning
-DESCRIPTION:Days 1–2 at Hyatt Regency La Jolla (open to all participants)\, days 3–4 at NIWC Pacific (appropriately cleared attendees only). https://go.mil/naml
+DESCRIPTION:Days 1–2 at Hyatt Regency La Jolla (open to all participants)\, days 3–4 at NIWC Pacific (appropriately cleared attendees only). https://sites.google.com/go.spawar.navy.mil/naml/naml-2027
 LOCATION:San Diego\, California
-URL:https://go.mil/naml
+URL:https://sites.google.com/go.spawar.navy.mil/naml/naml-2027
 END:VEVENT
 END:VCALENDAR

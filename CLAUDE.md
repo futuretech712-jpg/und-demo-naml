@@ -53,7 +53,7 @@ Home, Registration (mjesto za Paperform: PAPERFORM_ID ili PAPERFORM_URL u build.
 - Organizatori: naml@us.navy.mil
 - Registration support: naml2027@underline.io
 - Sponzorstvo: RaChelle Curato, racurato@deloitte.com
-- Info: https://go.mil/naml. Faza predaje sažetaka je gotova: na stranici nema sadržaja o abstractima ni Call for Participation.
+- Info: https://sites.google.com/go.spawar.navy.mil/naml/naml-2027 (umjesto go.mil/naml). Faza predaje sažetaka je gotova: na stranici nema sadržaja o abstractima ni Call for Participation.
 
 ## Otvoreno
 - Vidi i `AUDIT.md` (zona roka, NIWC zgrada i pristup, potvrda tablice pristupa, .ics i slike u WP Media Library).
