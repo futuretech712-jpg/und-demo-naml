@@ -420,6 +420,30 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .regform h3{font-size:32px;color:var(--dteal);margin:0 0 8px}
 .naml .regform p{margin:0 0 16px;max-width:620px}
 
+.naml .logos.big{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:960px}
+.naml .logos.big .orgl{width:auto}
+.naml .logos.big .spon{width:100%;aspect-ratio:3/2;padding:26px 34px;border-radius:18px}
+.naml .logos.big .spon img{border-radius:0}
+.naml .logos.big .spon.wide{padding:20px 30px}
+.naml .logos.big b{font-size:16px}
+@media (max-width:700px){.naml .logos.big{grid-template-columns:minmax(0,1fr);max-width:360px}}
+
+.naml .access-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:start}
+.naml .route{list-style:none;counter-reset:r;margin:0;padding:0}
+.naml .route li{counter-increment:r;position:relative;padding:0 0 26px 58px;margin:0 0 26px;border-bottom:1px solid var(--line)}
+.naml .route li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.naml .route li::before{content:counter(r);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;font:400 24px/1 "Bebas Neue",sans-serif;display:flex;align-items:center;justify-content:center}
+.naml .route h3{font-size:28px;color:var(--dteal);margin:4px 0 8px}
+.naml .route p{margin:0 0 10px}
+.naml .route address{font:400 14px/1.6 var(--mono);font-style:normal;color:var(--ink);margin:0 0 10px;padding-left:12px;border-left:2px solid var(--coral)}
+.naml .route .maplink{font:600 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--coral-ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.naml .map{margin:0;position:sticky;top:110px}
+.naml .map img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:6px 6px 0 var(--coral)}
+.naml .map figcaption{margin-top:14px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.naml .map .k{display:inline-block;width:22px;height:5px;border-radius:3px}
+.naml .map .k.drive{background:#7FD39B}.naml .map .k.walk{background:#F07F1E}
+@media (max-width:860px){.naml .access-grid{grid-template-columns:minmax(0,1fr)}.naml .map{position:static}}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
@@ -497,7 +521,39 @@ body.admin-bar .naml-page .top{top:32px}
         <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Naval+Information+Warfare+Center+Pacific%2C+53560+Hull+Street%2C+San+Diego%2C+CA+92152" target="_blank" rel="noopener">Open in Google Maps</a>
       </div>
     </div>
-    <p class="note dark">Days 3-4 are on a Navy installation. NIWC Pacific's general visitor guidance asks official visitors to request access well in advance (at least 15 business days). Confirm the workshop's access process with the organizers at <a href="mailto:naml@us.navy.mil?subject=NAML%202027%20NIWC%20Pacific%20access">naml@us.navy.mil</a>.</p>
+    <p class="note dark">Directions for days 3-4 are <a href="#niwc-access">below</a>. Days 3-4 are on a Navy installation. NIWC Pacific's general visitor guidance asks official visitors to request access well in advance (at least 15 business days). Confirm the workshop's access process with the organizers at <a href="mailto:naml@us.navy.mil?subject=NAML%202027%20NIWC%20Pacific%20access">naml@us.navy.mil</a>.</p>
+  </div>
+</section>
+
+<section class="band mist" id="niwc-access">
+  <div class="wrap">
+    <div class="head"><h2>Getting to NIWC Pacific</h2><p>Days 3-4, April 14-15. Restricted sessions for appropriately cleared attendees.</p></div>
+    <div class="access-grid">
+      <div class="steps-col">
+        <ol class="route">
+          <li>
+            <h3>No CAC or DBIDS yet? Start at the Visitor Center</h3>
+            <p>Pick up your DBIDS credential here. This is also the taxi and rideshare drop-off and pick-up point.</p>
+            <address>NIWC Pacific Visitor Center<br>49275 Electron Dr, San Diego, CA 92152</address>
+            <a class="maplink" href="https://maps.app.goo.gl/BUBY2jN3YMfiExSq9" target="_blank" rel="noopener">Visitor Center in Google Maps</a>
+          </li>
+          <li>
+            <h3>Enter through the Mills St. Gate</h3>
+            <p>You must have a CAC or DBIDS credential to enter.</p>
+            <address>Mills St. Gate<br>Mills St, San Diego, CA 92106</address>
+            <a class="maplink" href="https://maps.app.goo.gl/HamBydRTkbqwBspL8" target="_blank" rel="noopener">Mills St. Gate in Google Maps</a>
+          </li>
+          <li>
+            <h3>Park and walk to the session</h3>
+            <p>Parking is along Electron Dr. The map shows the driving route (green) and the walking route (orange) to the A33 Main Entrance and Bldg. 99.</p>
+          </li>
+        </ol>
+      </div>
+      <figure class="map">
+        <a href="https://futuretech712-jpg.github.io/und-demo-naml/assets/img/niwc-access-map.webp" target="_blank" rel="noopener"><img src="https://futuretech712-jpg.github.io/und-demo-naml/assets/img/niwc-access-map.webp" alt="Map of NIWC Pacific with the Visitor Center, Mills St. Gate, parking, A33 Main Entrance and Bldg. 99, with driving and walking routes" width="1180" height="1536" loading="lazy"></a>
+        <figcaption><span class="k drive"></span>Drive <span class="k walk"></span>Walk. Tap the map to open it full size.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 

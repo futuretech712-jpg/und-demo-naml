@@ -420,6 +420,30 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .regform h3{font-size:32px;color:var(--dteal);margin:0 0 8px}
 .naml .regform p{margin:0 0 16px;max-width:620px}
 
+.naml .logos.big{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:960px}
+.naml .logos.big .orgl{width:auto}
+.naml .logos.big .spon{width:100%;aspect-ratio:3/2;padding:26px 34px;border-radius:18px}
+.naml .logos.big .spon img{border-radius:0}
+.naml .logos.big .spon.wide{padding:20px 30px}
+.naml .logos.big b{font-size:16px}
+@media (max-width:700px){.naml .logos.big{grid-template-columns:minmax(0,1fr);max-width:360px}}
+
+.naml .access-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:start}
+.naml .route{list-style:none;counter-reset:r;margin:0;padding:0}
+.naml .route li{counter-increment:r;position:relative;padding:0 0 26px 58px;margin:0 0 26px;border-bottom:1px solid var(--line)}
+.naml .route li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.naml .route li::before{content:counter(r);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--coral);color:#fff;font:400 24px/1 "Bebas Neue",sans-serif;display:flex;align-items:center;justify-content:center}
+.naml .route h3{font-size:28px;color:var(--dteal);margin:4px 0 8px}
+.naml .route p{margin:0 0 10px}
+.naml .route address{font:400 14px/1.6 var(--mono);font-style:normal;color:var(--ink);margin:0 0 10px;padding-left:12px;border-left:2px solid var(--coral)}
+.naml .route .maplink{font:600 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--coral-ink);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.naml .map{margin:0;position:sticky;top:110px}
+.naml .map img{display:block;width:100%;height:auto;border-radius:12px;box-shadow:6px 6px 0 var(--coral)}
+.naml .map figcaption{margin-top:14px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.naml .map .k{display:inline-block;width:22px;height:5px;border-radius:3px}
+.naml .map .k.drive{background:#7FD39B}.naml .map .k.walk{background:#F07F1E}
+@media (max-width:860px){.naml .access-grid{grid-template-columns:minmax(0,1fr)}.naml .map{position:static}}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
@@ -517,10 +541,10 @@ body.admin-bar .naml-page .top{top:32px}
 <section class="band mist">
   <div class="wrap">
     <div class="head"><h2>Organizing organizations</h2></div>
-    <div class="logos">
-      <a class="orgl" href="https://www.afcea.org/signal/chapternews/index.cfm?action=chapter&amp;chapname=San%20Diego%20Chapter" target="_blank" rel="noopener"><span class="spon" data-n="AFCEA San Diego"><img src="https://naml2026.org/wp-content/uploads/elementor/thumbs/afcea_logosquare-rf6e5ypwds1givn7r6bfo9qdbnn12xabfway7m3zrk.png" alt="AFCEA San Diego Chapter" onerror="this.remove()"></span><b>AFCEA San Diego Chapter</b></a>
+    <div class="logos big">
       <a class="orgl" href="https://www.niwcpacific.navy.mil/" target="_blank" rel="noopener"><span class="spon" data-n="NIWC Pacific"><img src="https://naml2026.org/wp-content/uploads/elementor/thumbs/NIWC-Pacific-Logo-Black-Text-for-Light-Bkgnd-square-rf6e6m7v4mxml4p2xyh3wlsw6af7fcvlv4m37j55g0.png" alt="Naval Information Warfare Center Pacific" onerror="this.remove()"></span><b>Naval Information Warfare Center Pacific</b></a>
-      <a class="orgl" href="https://underline.io/events" target="_blank" rel="noopener"><span class="spon" data-n="Underline"><img src="https://naml2026.org/wp-content/uploads/elementor/thumbs/U-sa-bjelim-rf6fc5p361stoqctdewjlmf9abo6lssjwqjlqrjsgg.jpg" alt="Underline Science" onerror="this.remove()"></span><b>Underline Science</b></a>
+      <a class="orgl" href="https://www.afcea.org/signal/chapternews/index.cfm?action=chapter&amp;chapname=San%20Diego%20Chapter" target="_blank" rel="noopener"><span class="spon" data-n="AFCEA San Diego"><img src="https://naml2026.org/wp-content/uploads/elementor/thumbs/afcea_logosquare-rf6e5ypwds1givn7r6bfo9qdbnn12xabfway7m3zrk.png" alt="AFCEA San Diego Chapter" onerror="this.remove()"></span><b>AFCEA San Diego Chapter</b></a>
+      <a class="orgl" href="https://underline.io" target="_blank" rel="noopener"><span class="spon wide" data-n="Underline"><img src="https://futuretech712-jpg.github.io/und-demo-naml/assets/img/underline-logo.png" alt="Underline Science" onerror="this.remove()"></span><b>Underline Science</b></a>
     </div>
   </div>
 </section>

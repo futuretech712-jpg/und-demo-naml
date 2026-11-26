@@ -29,7 +29,8 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Potpisni detalj: "pomaknuta sjena" kao kod broda u logu (žuta ili koraljna `box-shadow`/`text-shadow` 3–6px).
 - Logo: vektoriziran iz originala, `assets/img/naml27-logo-color.svg|.webp` (svijetla pozadina) i `naml27-logo-white.svg|.webp` (tamna); WebP je 2421 px širok.
 - Hero na naslovnici: bijeli logo, ispod naslovni blok (bijela linija, veliko žuto "2027", "APRIL 12–15 / SAN DIEGO, CA"), formacija mlažnjaka u pozadini (`src/svg/jets.svg`), gumbi, odbrojavanje do početka radionice (12. 4. 2027, data-end na #naml-count) i radar (`src/parts/radar.html`, radar s oznakama "La Jolla · Days 1–2" i "NIWC Pacific · Days 3–4" i legendom ispod; na unutarnjim stranicama `radar-mini.html`). Bez "11th Annual Workshop" u naslovu.
-- Logotipi sponzora i organizacija su u zaobljenim bijelim pločicama (`.spon`), a osobe u karticama (`.person`).
+- Logotipi organizacija (`src/parts/orglogos.html`: NIWC Pacific, AFCEA San Diego, Underline) su velike pločice (`.logos.big`) na Organizers i Sponsors; Underline logo je lokalni (`assets/img/underline-logo.png`). Osobe su u karticama (`.person`).
+- Venues ima sekciju "Getting to NIWC Pacific" (`#niwc-access`): Visitor Center (DBIDS, taxi), Mills St. Gate (CAC/DBIDS), parking i karta `assets/img/niwc-access-map.webp` (iz Restricted_Session_locations.pdf).
 - Radar (glavni na naslovnici, mali na ostalim stranicama i loading ekran) je obavezni dio identiteta. Ne micati ga i ne zamjenjivati.
 - "CIC" mrežasta pozadina (`.gridbg`) samo na tamnim dijelovima: heroji, page heroji i sekcija lokacija. Bijele sekcije ostaju bijele.
 - Venues koristi tamne "sektor" kartice (`.sector`) umjesto slika lokacija; ne stavljati fotografije lokacija dok se ne potvrdi smijemo li.
