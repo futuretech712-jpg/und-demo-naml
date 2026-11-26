@@ -27,7 +27,7 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - Paleta NAML 2027: teal #16929E, tamni teal #02565E, koralj #FF544B, žuta #FFC54B, narančasta #FFA04B. Pozadine #013A40 (deep) i #E8F4F5 (mist).
 - Fontovi: Bebas Neue (naslovi), Barlow (tekst), IBM Plex Mono (radar, oznake sektora), s Google Fontsa.
 - Potpisni detalj: "pomaknuta sjena" kao kod broda u logu (žuta ili koraljna `box-shadow`/`text-shadow` 3–6px).
-- Logo: `assets/img/naml27-logo-color.webp` (svijetla pozadina), `naml27-logo-white.webp` (tamna).
+- Logo: vektoriziran iz originala, `assets/img/naml27-logo-color.svg|.webp` (svijetla pozadina) i `naml27-logo-white.svg|.webp` (tamna); WebP je 2421 px širok.
 - Hero na naslovnici: bijeli logo, ispod naslovni blok (bijela linija, veliko žuto "2027", "APRIL 12–15 / SAN DIEGO, CA"), formacija mlažnjaka u pozadini (`src/svg/jets.svg`), gumbi, odbrojavanje do 4. 12. 2026 i radar (`src/parts/radar.html`, radar s oznakama "La Jolla · Days 1–2" i "NIWC Pacific · Days 3–4" i legendom ispod; na unutarnjim stranicama `radar-mini.html`). Bez "11th Annual Workshop" u naslovu.
 - Logotipi sponzora i organizacija su u zaobljenim bijelim pločicama (`.spon`), a osobe u karticama (`.person`).
 - Radar (glavni na naslovnici, mali na ostalim stranicama i loading ekran) je obavezni dio identiteta. Ne micati ga i ne zamjenjivati.
