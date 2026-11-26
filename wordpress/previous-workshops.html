@@ -266,7 +266,7 @@
   animation:namlspin 6s linear infinite;mix-blend-mode:screen;filter:blur(.3px)}
 @keyframes namlspin{to{transform:rotate(360deg)}}
 .naml .scope .blip{position:absolute;transform:translate(-7px,-50%);display:flex;align-items:center;gap:10px;font:500 clamp(10px,.72vw,13px)/1.2 var(--mono);letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;color:#E6F7F8;z-index:2}
-.naml .scope .blip i{position:relative;width:14px;height:14px;border-radius:50%;background:var(--yellow);box-shadow:3px 3px 0 var(--coral),0 0 18px rgba(255,197,75,.9);flex:none}
+.naml .scope .blip i{position:relative;width:14px;height:14px;border-radius:50%;background:var(--yellow);box-shadow:0 0 14px rgba(255,197,75,.8);flex:none}
 .naml .scope .blip i::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--yellow);opacity:0;animation:namlping 6s cubic-bezier(.2,.7,.3,1) infinite;animation-delay:var(--pd,.2s)}
 .naml .scope .blip.c i{background:var(--coral);box-shadow:0 0 18px rgba(255,84,75,.9)}
 .naml .scope .blip.c i::after{border-color:var(--coral)}
@@ -333,7 +333,7 @@
 .naml .radarbox{justify-self:center;width:100%;max-width:clamp(320px,36vw,600px);display:flex;flex-direction:column;align-items:center;gap:22px}
 .naml .legend{list-style:none;margin:0;padding:14px 16px;display:grid;gap:10px;width:100%;max-width:520px;background:rgba(1,20,23,.6);border:1px solid rgba(95,224,234,.25);border-radius:6px}
 .naml .legend li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;align-items:start;font:400 13px/1.45 var(--mono);color:#B9D9DC}
-.naml .legend i{width:12px;height:12px;border-radius:50%;margin-top:3px;background:var(--yellow);box-shadow:2px 2px 0 var(--coral)}
+.naml .legend i{width:12px;height:12px;border-radius:50%;margin-top:3px;background:var(--yellow)}
 .naml .legend li.c i{background:var(--coral);box-shadow:none}
 .naml .legend b{display:block;font-weight:600;color:#fff;letter-spacing:.04em;text-transform:uppercase}
 .naml .legend li.c b{color:#FFB3AE}
