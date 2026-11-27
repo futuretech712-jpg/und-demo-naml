@@ -521,3 +521,10 @@
 .naml .lanyard .spons{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:900px){.naml .spons,.naml .lanyard .spons{grid-template-columns:repeat(2,minmax(0,1fr))}.naml .spon{height:150px}}
 @media (max-width:520px){.naml .spons,.naml .lanyard .spons{grid-template-columns:minmax(0,1fr)}.naml .spon{width:auto;height:140px}.naml .diamond .spon{height:200px;padding:28px}}
+/* Sponsor logos v3: logos fill the tile */
+.naml .spon{height:200px;padding:18px 22px}
+.naml .spon img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain}
+.naml .diamond .spons{grid-template-columns:minmax(0,640px)}
+.naml .diamond .spon{height:300px;padding:26px 34px}
+@media (max-width:900px){.naml .spon{height:170px;padding:14px 18px}}
+@media (max-width:520px){.naml .spon{height:160px}.naml .diamond .spon{height:230px;padding:20px}}
