@@ -471,6 +471,21 @@ body.admin-bar .naml-page .top{top:32px}
 .naml .two .calbar{margin-top:8px}
 @media (max-width:600px){.naml .calbar-btns{width:100%}.naml .calbar-btns a{flex:1 1 0;justify-content:center;padding:0 10px}}
 
+.naml .tier{display:block;padding:34px 0;border-top:1px solid var(--line)}
+.naml .tier:first-of-type{border-top:0;padding-top:0}
+.naml .tier .tl{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.naml .tier .tl i{width:34px;height:6px;margin:0}
+.naml .tier h3{font-size:30px;margin:0}
+.naml .tier .tl small{font-size:14px;color:var(--muted)}
+.naml .spons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.naml .spon{width:auto;aspect-ratio:auto;height:180px;padding:28px 32px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.naml .spon img{position:static;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:0}
+.naml .diamond .spons{grid-template-columns:minmax(0,520px)}
+.naml .diamond .spon{width:auto;height:260px;padding:40px 56px;border:3px solid var(--yellow);box-shadow:8px 8px 0 var(--yellow)}
+.naml .lanyard .spons{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.naml .spons,.naml .lanyard .spons{grid-template-columns:repeat(2,minmax(0,1fr))}.naml .spon{height:150px}}
+@media (max-width:520px){.naml .spons,.naml .lanyard .spons{grid-template-columns:minmax(0,1fr)}.naml .spon{width:auto;height:140px}.naml .diamond .spon{height:200px;padding:28px}}
+
 </style>
 <div class="naml naml-page">
   <header class="top">
