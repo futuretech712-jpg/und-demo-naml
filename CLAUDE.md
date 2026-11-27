@@ -47,7 +47,7 @@ Placeholderi u stranicama: `{{base}}` (putanja do assets), `{{link:stranica}}` (
 - CSS i JS imaju `?v=hash` u linkovima (cache-busting) koji dodaje build.
 
 ## Stranice
-Home, Registration (mjesto za Paperform: PAPERFORM_ID ili PAPERFORM_URL u build.py), Agenda (za NAML 2027; Underline embed je zakomentiran, čeka EVENT_ID), Venues (Hyatt Regency La Jolla dani 1–2, NIWC Pacific dani 3–4), Organizers (General chairs: Erin Hausmann, Pedro Forero; AFCEA chair: RaChelle Curato; Registration chair; Website chair), Sponsors (bez popisa, samo kontakt RaChelle Curato), Previous Workshops (2021–2026 + embed NAML 2026 programa: underline.io/events/508/schedule/embed).
+Home, Registration (mjesto za Paperform: PAPERFORM_ID ili PAPERFORM_URL u build.py), Agenda (za NAML 2027; Underline embed je zakomentiran, čeka EVENT_ID), Venues (Hyatt Regency La Jolla dani 1–2, NIWC Pacific dani 3–4), Organizers (General chairs: Erin Hausmann, Pedro Forero; AFCEA chair: RaChelle Curato; Registration chair; Website chair), Sponsors (kontakt RaChelle Curato + popis NAML 2026 sponzora: Booz Allen Hamilton, Deloitte, Noblis, Ignite Digital, XSite, Cavu), Previous Workshops (2021–2026 + embed NAML 2026 programa: underline.io/events/508/schedule/embed).
 
 ## Kontakti na stranici
 - Organizatori: naml@us.navy.mil
